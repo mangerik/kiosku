@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-09-03T08:04:06.694Z",
+  "storeId": "02ce7320-c946-422d-a87e-c693c342e955",
+  "storeUrl": "https://kiosku-uji-netlify-0309-02ce7320c946422da87ec693c342e955.netlify.app",
+  "siteId": "e4eedc17-3b62-44b0-adb8-5a2b64b2e3fe",
+  "deployId": "6a99276a080688007a8ca0c4",
+  "deployCount": 1,
+  "state": "ready",
+  "rootBinding": true,
+  "deepLink": "/toko/ruang-rona-contoh/produk/22a1d879-b397-45ae-a231-4e3137b2f400",
+  "registeredCors": true,
+  "unregisteredCorsRejected": true,
+  "mainReady": true
+}

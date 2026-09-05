@@ -1,0 +1,72 @@
+{
+  "storeId": "02ce7320-c946-422d-a87e-c693c342e955",
+  "name": "Ruang Rona",
+  "slug": "ruang-rona-contoh",
+  "category": "Rumah & gaya hidup",
+  "description": "Pilihan sederhana untuk hari yang terasa lebih baik. Temukan pakaian esensial, teman perjalanan, dan perlengkapan ritual kopi dalam satu ruang. Ruang Rona adalah toko contoh Kiosku; katalog, harga, stok, dan kebijakan di sini merupakan data ilustrasi, bukan penawaran transaksi nyata.",
+  "policy": "Contoh kebijakan toko: pesanan disiapkan dalam 1–2 hari kerja, Senin–Jumat pukul 09.00–17.00 WIB. Ongkir contoh Rp15.000 per pesanan. Produk pakaian dan aksesori dapat diajukan penukaran maksimal 7 hari sejak diterima, dalam kondisi belum dipakai dan label tetap terpasang. Produk makanan/minuman tidak dapat ditukar setelah dibuka, kecuali terdapat kerusakan yang dilaporkan saat diterima. Foto digunakan sebagai ilustrasi katalog. Toko ini merupakan contoh Kiosku dan tidak melayani transaksi atau pengiriman nyata.",
+  "shippingFee": 15000,
+  "hero": {
+    "title": "Hal sederhana. Banyak cerita.",
+    "text": "Dari pakaian favorit sampai secangkir kopi sore. Pilihan untuk menemani ritme harimu, semuanya dalam satu ruang.",
+    "image": "hero.jpg"
+  },
+  "products": [
+    {
+      "name": "Kemeja Putih Everyday",
+      "category": "Pakaian",
+      "image": "shirt.jpg",
+      "description": "Kemeja putih dengan kerah klasik dan lengan panjang untuk tampilan rapi sehari-hari. Mudah dipadukan dengan celana kain maupun denim.\n\nSpesifikasi contoh: bahan katun, potongan regular fit, kancing depan, warna putih. Ukuran M: lebar dada 52 cm/panjang 72 cm; L: 55/74 cm; XL: 58/76 cm. Toleransi ukuran ±2 cm. Cuci dengan warna sejenis dan setrika suhu sedang.\n\nIsi paket: 1 kemeja; dasi dan aksesori pada foto tidak termasuk. Foto, spesifikasi, harga, dan stok merupakan ilustrasi toko contoh.",
+      "variants": [{"name":"M / Putih","price":189000,"stock":18},{"name":"L / Putih","price":189000,"stock":24},{"name":"XL / Putih","price":199000,"stock":12}]
+    },
+    {
+      "name": "Kaos Essential Putih",
+      "category": "Pakaian",
+      "image": "tee.jpg",
+      "description": "Kaos polos berkerah bulat untuk hari santai, perjalanan singkat, atau lapisan dalam favorit. Siluet sederhana yang mudah dipadukan.\n\nSpesifikasi contoh: katun combed 24s, regular fit, lengan pendek. Ukuran S: lebar dada 48 cm/panjang 68 cm; M: 50/70 cm; L: 53/72 cm; XL: 56/74 cm. Toleransi ±2 cm. Cuci dengan air dingin, balik pakaian saat menjemur, dan hindari pemutih.\n\nIsi paket: 1 kaos putih. Foto, spesifikasi, harga, dan stok merupakan ilustrasi toko contoh.",
+      "variants": [{"name":"S / Putih","price":99000,"stock":15},{"name":"M / Putih","price":99000,"stock":28},{"name":"L / Putih","price":99000,"stock":22},{"name":"XL / Putih","price":109000,"stock":10}]
+    },
+    {
+      "name": "Ransel Daily Commuter",
+      "category": "Tas & Sepatu",
+      "image": "tote.jpg",
+      "description": "Ransel berwarna gelap dengan kompartemen utama dan kantong depan untuk menata barang harian. Teman berangkat kerja, belajar, dan menjelajah kota.\n\nSpesifikasi contoh: bahan poliester, ukuran 42 × 29 × 12 cm, kapasitas sekitar 18 liter, tali bahu dapat disesuaikan. Kompartemen dalam untuk laptop hingga 14 inci; periksa ukuran perangkat sebelum memilih. Bersihkan noda dengan kain lembap dan keringkan di tempat teduh.\n\nIsi paket: 1 ransel. Foto, spesifikasi, harga, dan stok merupakan ilustrasi toko contoh.",
+      "variants": [{"name":"18 L / Navy","price":249000,"stock":20}]
+    },
+    {
+      "name": "Sneakers Urban Cokelat",
+      "category": "Tas & Sepatu",
+      "image": "shoes.jpg",
+      "description": "Sneakers bertali dalam warna cokelat hangat untuk melengkapi paduan kasual. Sol terang memberi aksen pada tampilan harian.\n\nPanduan ukuran contoh berdasarkan panjang kaki: 39 = 24,5 cm; 40 = 25 cm; 41 = 25,5 cm; 42 = 26 cm; 43 = 26,5 cm. Bersihkan menggunakan sikat lembut dan simpan di tempat kering.\n\nIsi paket: 1 pasang sepatu. Foto menampilkan referensi gaya, bukan klaim merek atau ketersediaan barang asli. Harga, stok, dan spesifikasi merupakan ilustrasi toko contoh.",
+      "variants": [{"name":"39 / Cokelat","price":349000,"stock":7},{"name":"40 / Cokelat","price":349000,"stock":12},{"name":"41 / Cokelat","price":349000,"stock":15},{"name":"42 / Cokelat","price":349000,"stock":11},{"name":"43 / Cokelat","price":349000,"stock":6}]
+    },
+    {
+      "name": "Mug Keramik Pagi",
+      "category": "Ritual Kopi",
+      "image": "cup.jpg",
+      "description": "Mug putih dengan gagang melengkung dan bentuk sederhana untuk menemani kopi atau teh hangat. Cocok ditempatkan di meja kerja maupun sudut santai.\n\nSpesifikasi contoh: keramik berglasir, kapasitas 300 ml. Pilih satu mug untuk penggunaan pribadi atau paket dua untuk hadiah. Cuci dengan spons lembut dan hindari perubahan suhu mendadak.\n\nIsi paket sesuai varian; minuman tidak termasuk. Foto, spesifikasi, harga, dan stok merupakan ilustrasi toko contoh.",
+      "variants": [{"name":"300 ml / Satuan","price":79000,"stock":30},{"name":"300 ml / Paket 2","price":149000,"stock":12}]
+    },
+    {
+      "name": "House Blend untuk Seduh Harian",
+      "category": "Ritual Kopi",
+      "image": "beans.jpg",
+      "description": "Contoh kopi house blend untuk melengkapi ritual seduh di rumah. Profil rasa ilustrasi: cokelat, karamel, dan akhir rasa yang lembut, dengan sangrai medium.\n\nPilih biji utuh jika menggunakan penggiling sendiri, atau giling medium untuk seduh manual. Saran resep contoh: 15 gram kopi dan 225 ml air. Simpan dalam wadah kedap udara, jauh dari panas dan cahaya.\n\nBerat bersih sesuai varian. Foto kemasan merupakan ilustrasi dan tidak menyatakan toko sebagai pemilik atau distributor merek pada foto. Produk, harga, dan stok adalah data contoh.",
+      "variants": [{"name":"250 g / Biji utuh","price":89000,"stock":25},{"name":"250 g / Giling medium","price":89000,"stock":18},{"name":"500 g / Biji utuh","price":169000,"stock":12}]
+    },
+    {
+      "name": "Paket Seduh Pour Over",
+      "category": "Ritual Kopi",
+      "image": "coffee.jpg",
+      "description": "Contoh paket awal untuk mengenal seduh manual: wadah seduh kaca dan filter kertas dalam satu pilihan. Cocok untuk menghadirkan jeda singkat di pagi hari.\n\nSpesifikasi contoh: kapasitas 400 ml untuk 2–3 cangkir kecil. Paket Starter berisi wadah seduh dan 20 filter; paket Lengkap menambahkan 100 gram kopi contoh. Bilas filter dengan air hangat sebelum menyeduh. Cuci kaca perlahan dan hindari benturan.\n\nKetel serta aksesori lain pada foto tidak termasuk. Foto, spesifikasi, harga, dan stok merupakan ilustrasi toko contoh.",
+      "variants": [{"name":"Starter / 400 ml","price":229000,"stock":14},{"name":"Lengkap / 400 ml + kopi","price":269000,"stock":9}]
+    },
+    {
+      "name": "Es Kopi Susu Sore",
+      "category": "Ritual Kopi",
+      "image": "coldbrew.jpg",
+      "description": "Contoh minuman kopi dingin dengan susu dan sentuhan gula aren. Teman menikmati sore atau melengkapi waktu istirahat.\n\nKomposisi ilustrasi: kopi, susu sapi, gula aren, dan es. Pilih tingkat kemanisan melalui varian. Mengandung susu dan kafein. Sajikan dingin dan konsumsi segera setelah diterima.\n\nVolume contoh 250 ml; foto merupakan saran penyajian, gelas tidak termasuk. Menu ini hanya untuk demonstrasi katalog dan tidak tersedia untuk pembelian maupun pengiriman nyata.",
+      "variants": [{"name":"250 ml / Original","price":28000,"stock":40},{"name":"250 ml / Less sugar","price":28000,"stock":30},{"name":"250 ml / Tanpa gula","price":28000,"stock":20}]
+    }
+  ]
+}

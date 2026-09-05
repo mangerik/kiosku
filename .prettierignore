@@ -1,0 +1,9 @@
+node_modules
+dist
+design
+.artifacts
+package-lock.json
+deno.lock
+supabase/deno.lock
+*.sql
+*-Kiosku.id.md

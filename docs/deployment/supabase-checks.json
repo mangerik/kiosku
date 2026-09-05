@@ -1,0 +1,62 @@
+{
+  "project": "mbackiawysjbjvqlntfs",
+  "checkedAt": "2026-09-03T06:56:32.706Z",
+  "checks": [
+    {
+      "name": "public_storefront",
+      "status": 200,
+      "expected": 200,
+      "passed": true,
+      "response": "null"
+    },
+    {
+      "name": "merchant_workspace_denies_anonymous",
+      "status": 401,
+      "expected": 401,
+      "passed": true,
+      "response": "{\"code\":\"42501\",\"details\":null,\"hint\":null,\"message\":\"permission denied for function merchant_workspace\"}"
+    },
+    {
+      "name": "settlement_denies_anonymous",
+      "status": 401,
+      "expected": 401,
+      "passed": true,
+      "response": "{\"code\":\"42501\",\"details\":null,\"hint\":null,\"message\":\"permission denied for function settle_order\"}"
+    },
+    {
+      "name": "transfer_requires_bank_config",
+      "status": 503,
+      "expected": 503,
+      "passed": true,
+      "response": "{\"error\":\"Transfer bank belum tersedia. Pilih QRIS atau hubungi toko.\"}"
+    },
+    {
+      "name": "qris_requires_gateway_config",
+      "status": 503,
+      "expected": 503,
+      "passed": true,
+      "response": "{\"error\":\"QRIS belum tersedia. Pilih transfer bank atau hubungi toko.\"}"
+    },
+    {
+      "name": "webhook_requires_gateway_config",
+      "status": 503,
+      "expected": 503,
+      "passed": true,
+      "response": "{\"message\":\"Payment is not configured\"}"
+    },
+    {
+      "name": "billing_requires_user",
+      "status": 401,
+      "expected": 401,
+      "passed": true,
+      "response": "{\"error\":\"Silakan masuk kembali.\"}"
+    },
+    {
+      "name": "maintenance_requires_private_secret",
+      "status": 401,
+      "expected": 401,
+      "passed": true,
+      "response": "Unauthorized"
+    }
+  ]
+}

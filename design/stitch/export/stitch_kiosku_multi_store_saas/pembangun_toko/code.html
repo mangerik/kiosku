@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{"colors":{"secondary-fixed":"#d7e6df","inverse-surface":"#2e3131","surface-container-high":"#e6e9e8","surface-dim":"#d8dada","tertiary-fixed-dim":"#ffb3b0","on-tertiary":"#ffffff","on-tertiary-container":"#ffbdba","on-primary":"#ffffff","tertiary":"#6a2d2c","inverse-on-surface":"#eff1f0","secondary-container":"#d7e6df","tertiary-fixed":"#ffdad8","surface-variant":"#e1e3e2","on-secondary-container":"#596762","surface-container-lowest":"#ffffff","on-tertiary-fixed":"#3b080b","tertiary-container":"#874342","on-tertiary-fixed-variant":"#733333","surface":"#f8faf9","on-error":"#ffffff","secondary":"#54615c","primary-fixed-dim":"#8ed5b3","primary-fixed":"#a9f2cf","outline":"#6f7973","outline-variant":"#bfc9c1","on-surface":"#191c1c","inverse-primary":"#8ed5b3","background":"#f8faf9","surface-container-low":"#f2f4f3","error":"#ba1a1a","on-primary-container":"#95dcba","surface-tint":"#216a4f","on-surface-variant":"#3f4943","on-secondary-fixed":"#111e1a","error-container":"#ffdad6","secondary-fixed-dim":"#bbcac3","on-secondary":"#ffffff","primary":"#004a33","surface-container":"#eceeed","on-error-container":"#93000a","on-primary-fixed":"#002115","surface-container-highest":"#e1e3e2","on-primary-fixed-variant":"#005139","on-secondary-fixed-variant":"#3c4a45","on-background":"#191c1c","surface-bright":"#f8faf9","primary-container":"#176348"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"max-width":"1280px","xl":"40px","margin-mobile":"16px","sm":"8px","margin-desktop":"32px","lg":"24px","gutter":"16px","md":"16px","base":"4px","xs":"4px"},"fontFamily":{"body-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"]},"fontSize":{"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}],"body-sm":["14px",{"lineHeight":"1.5","fontWeight":"400"}],"body-md":["16px",{"lineHeight":"1.6","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"1.4","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"1.3","fontWeight":"700"}],"display-lg":["48px",{"lineHeight":"1.2","letterSpacing":"-0.02em","fontWeight":"700"}],"label-md":["14px",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"1.3","letterSpacing":"-0.01em","fontWeight":"700"}],"label-sm":["12px",{"lineHeight":"1.2","fontWeight":"500"}]}}}}</script><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-[240px] bg-white z-50 flex flex-col shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="px-md py-lg mb-md flex items-center gap-sm"><img alt="Kiosku Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQBthJk33eODxCGybqmpScCyM1Ij3X9MmPXmZk8x8rp-e0wUHOSbjk8hcQPyGv7kb3MKNehUJ_KGvr6Uldj-fMwkw5pJxwaNr4SsdlSGpAtWIeV1Cy6PixKqknVMYwb3iABl7Bmc2Hv9NjK2A5p9mOyaFOvNLQLC6nq5HQJhD1PueOQ-8Y232eTa-6Y3-e15LwMxScj1HbEvpB2KjkUFALTRGFj2dVUxNzx6uqksYrXJTqe7qjzd_C"/><span class="font-headline-md text-primary text-headline-md tracking-tight">Kiosku.id</span></div><nav class="flex-1 px-sm space-y-xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-semibold"><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="ringkasan" href="#"><span class="material-symbols-outlined">dashboard</span><span class="font-body-md text-body-md">Ringkasan</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="toko-saya" href="#"><span class="material-symbols-outlined">store</span><span class="font-body-md text-body-md">Toko Saya</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="produk" href="#"><span class="material-symbols-outlined">inventory_2</span><span class="font-body-md text-body-md">Produk</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="pesanan" href="#"><span class="material-symbols-outlined">shopping_cart</span><span class="font-body-md text-body-md">Pesanan</span></a><a aria-current="page" class="flex items-center gap-md px-md py-sm rounded-lg transition-colors bg-primary-container text-on-primary-container font-semibold" data-path="tampilan-toko" href="#"><span class="material-symbols-outlined">palette</span><span class="font-body-md text-body-md">Tampilan Toko</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="analitik" href="#"><span class="material-symbols-outlined">analytics</span><span class="font-body-md text-body-md">Analitik</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="saldo" href="#"><span class="material-symbols-outlined">account_balance_wallet</span><span class="font-body-md text-body-md">Saldo</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="langganan" href="#"><span class="material-symbols-outlined">card_membership</span><span class="font-body-md text-body-md">Langganan</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="pengaturan" href="#"><span class="material-symbols-outlined">settings</span><span class="font-body-md text-body-md">Pengaturan</span></a></nav></aside><div class="pl-[240px]"><header class="fixed top-0 left-[240px] right-0 h-16 bg-surface/80 backdrop-blur-xl z-40 px-lg flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-md"><div class="relative group cursor-pointer bg-surface-container px-md py-xs rounded-full flex items-center gap-sm"><span class="material-symbols-outlined text-primary text-body-md">storefront</span><span class="font-label-md text-label-md text-on-surface">Semua Toko</span><span class="material-symbols-outlined text-on-surface-variant">expand_more</span></div></div><div class="flex items-center gap-lg"><button class="p-xs hover:bg-surface-container rounded-full text-on-surface-variant transition-colors"><span class="material-symbols-outlined">notifications</span></button><div class="flex items-center gap-sm pr-xs border-r border-outline-variant h-8"></div><div class="flex items-center gap-sm"><div class="text-right hidden sm:block"><div class="font-label-md text-label-md text-on-surface">Budi Santoso</div><div class="font-label-sm text-label-sm text-on-surface-variant">Merchant</div></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArO-tuLtHtANpDV1zWt4Ozy6QYxD_Qe45pVp247CI5hDrh_mcCv2N6XR3DAywCMVV7XvZ33kt1fcQPzHgAos-iHH3KkXOmyjXnLEzBpV1bzcKA4ea-68zEexP2mpdf4cETsBBJrxAwmmYgDPJKsu1AyMh4I30ejpqqgegH0Xbpi2_QUNAkjSahEwf7f6Jb6elXhULcmW6KGuAZ5D6xwJaPxkP4RoFuQezJplyBw-aHCBax9goAahdU"/></div></div></header><main class="relative pt-16 min-h-screen bg-background"><div class="flex flex-col w-full h-[calc(100vh-64px)] overflow-hidden bg-background">
+<!-- Workspace Header -->
+<div class="flex items-center justify-between px-lg py-md border-b border-outline-variant bg-surface">
+<div class="flex items-center gap-md">
+<h1 class="font-headline-md text-headline-md text-on-surface">Tampilan Toko</h1>
+<div class="flex bg-surface-container rounded-lg p-xs">
+<button class="px-md py-sm rounded-md bg-surface shadow-sm text-primary font-label-md text-label-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-[18px]">smartphone</span> Mobile
+                </button>
+<button class="px-md py-sm rounded-md text-on-surface-variant font-label-md text-label-md flex items-center gap-sm hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]">desktop_windows</span> Desktop
+                </button>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="px-lg py-sm rounded-full bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+                Simpan Draft
+            </button>
+<button class="px-lg py-sm rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm">
+                Publikasikan
+            </button>
+</div>
+</div>
+<!-- Main Workspace -->
+<div class="flex flex-1 overflow-hidden">
+<!-- Left Panel: UI Blocks -->
+<aside class="w-72 flex-shrink-0 bg-surface border-r border-outline-variant flex flex-col h-full z-10 shadow-[2px_0_12px_rgba(0,0,0,0.02)]">
+<div class="p-md border-b border-outline-variant">
+<h2 class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Komponen</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Seret ke area pratinjau</p>
+</div>
+<div class="p-md space-y-sm overflow-y-auto flex-1 pb-xl">
+<!-- Block Types -->
+<div class="group flex items-center gap-md p-md rounded-xl border border-outline-variant bg-surface cursor-grab hover:border-primary hover:shadow-sm transition-all">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined">image</span>
+</div>
+<div class="flex-1">
+<div class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">Banner Utama</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-tight mt-1">Gambar lebar penuh</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors text-[16px]">drag_indicator</span>
+</div>
+<div class="group flex items-center gap-md p-md rounded-xl border border-outline-variant bg-surface cursor-grab hover:border-primary hover:shadow-sm transition-all">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/30 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined">grid_view</span>
+</div>
+<div class="flex-1">
+<div class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">Produk Unggulan</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-tight mt-1">Grid produk pilihan</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors text-[16px]">drag_indicator</span>
+</div>
+<div class="group flex items-center gap-md p-md rounded-xl border border-outline-variant bg-surface cursor-grab hover:border-primary hover:shadow-sm transition-all">
+<div class="w-10 h-10 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined">article</span>
+</div>
+<div class="flex-1">
+<div class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">Teks &amp; Info</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-tight mt-1">Paragraf penjelasan</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors text-[16px]">drag_indicator</span>
+</div>
+<div class="group flex items-center gap-md p-md rounded-xl border border-outline-variant bg-surface cursor-grab hover:border-primary hover:shadow-sm transition-all">
+<div class="w-10 h-10 rounded-lg bg-tertiary-container/20 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined">reviews</span>
+</div>
+<div class="flex-1">
+<div class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors">Testimoni</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-tight mt-1">Ulasan pelanggan</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors text-[16px]">drag_indicator</span>
+</div>
+<div class="group flex items-center gap-md p-md rounded-xl border border-outline-variant bg-surface cursor-grab hover:border-primary hover:shadow-sm transition-all opacity-50">
+<div class="w-10 h-10 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined">collections</span>
+</div>
+<div class="flex-1">
+<div class="font-label-md text-label-md text-on-surface">Galeri Foto</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-tight mt-1">Premium feature</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[16px]">lock</span>
+</div>
+</div>
+</aside>
+<!-- Center: Preview Area -->
+<main class="flex-1 bg-surface-container-low flex flex-col relative overflow-hidden">
+<!-- Grid Background Pattern -->
+<div class="absolute inset-0 pointer-events-none opacity-[0.03]" style="background-image: radial-gradient(var(--tw-colors-on-surface) 1px, transparent 1px); background-size: 24px 24px;"></div>
+<div class="flex-1 overflow-y-auto p-lg flex justify-center items-start">
+<!-- Mobile Device Frame Mockup -->
+<div class="w-[375px] min-h-[667px] bg-white rounded-[40px] shadow-2xl relative border-[8px] border-surface-container-high overflow-hidden my-lg flex flex-col ring-1 ring-outline/10">
+<!-- Notched Header -->
+<div class="h-6 w-full flex justify-center absolute top-0 z-50">
+<div class="w-32 h-6 bg-surface-container-high rounded-b-2xl"></div>
+</div>
+<!-- Mock Store Header -->
+<div class="pt-10 pb-sm px-md bg-white border-b border-outline-variant flex items-center justify-between sticky top-0 z-40">
+<div class="font-headline-md text-body-md text-on-surface font-bold">Kopi Senja</div>
+<div class="flex gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">search</span>
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+</div>
+</div>
+<!-- Dropped Area Content -->
+<div class="flex-1 bg-surface-bright flex flex-col">
+<!-- Block 1: Banner (Selected State) -->
+<div class="relative group cursor-pointer ring-2 ring-primary ring-inset z-10 bg-white">
+<div class="absolute top-2 right-2 bg-primary text-on-primary rounded p-1 opacity-100 flex gap-1 shadow-md z-20">
+<span class="material-symbols-outlined text-[16px] hover:text-primary-fixed cursor-pointer">arrow_upward</span>
+<span class="material-symbols-outlined text-[16px] hover:text-primary-fixed cursor-pointer">arrow_downward</span>
+<span class="material-symbols-outlined text-[16px] hover:text-error-container cursor-pointer ml-1">delete</span>
+</div>
+<div class="w-full h-48 bg-surface-container-high flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A modern, highly polished product banner for a coffee shop. Dark moody lighting, rich espresso tones, a steaming cup of artisan coffee on a sleek wooden table, surrounded by roasted beans. Soft volumetric lighting. Professional editorial food photography style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC0D-lvL9jiZ0SGAbnaBaJh39C48InQWVgLqyPKpn__gyJLtvX6lcb0_Zq6vj0DFV6XJJgczxFgtUMYu4AiiK8UkQTiL8dRtW0NLoiB57P-G-V1sT7RhLQBh8xSxQ4x097UK4UGq9aPl1jWnThLjOeXnFAb4nvAN5OL0agsdx5v8x2RUaPdW-coHywBDok-q9Mi1hFV75dDV-GLYwjuJNEvVZq9VZem6Yjx6C-PweeIwKa9daLoa4no')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-white mb-1">Koleksi Signature</h3>
+<p class="font-body-sm text-body-sm text-white/80">Nikmati racikan rahasia barista kami.</p>
+</div>
+</div>
+</div>
+<!-- Drop Zone Indicator -->
+<div class="h-1 bg-primary w-full relative z-20 flex justify-center items-center">
+<div class="w-2 h-2 rounded-full bg-primary absolute -left-1"></div>
+<div class="w-2 h-2 rounded-full bg-primary absolute -right-1"></div>
+<div class="px-2 py-0.5 bg-primary text-on-primary font-label-sm text-[10px] rounded absolute -top-3 shadow-sm uppercase tracking-wider">Drop Here</div>
+</div>
+<!-- Block 2: Produk Unggulan -->
+<div class="p-md bg-white border-b border-outline-variant relative group cursor-pointer hover:ring-1 hover:ring-outline hover:z-10 transition-all">
+<div class="absolute top-2 right-2 bg-surface-container text-on-surface-variant rounded p-1 opacity-0 group-hover:opacity-100 transition-opacity flex gap-1 shadow-sm z-20">
+<span class="material-symbols-outlined text-[16px] hover:text-primary cursor-pointer">edit</span>
+<span class="material-symbols-outlined text-[16px] hover:text-error cursor-pointer">delete</span>
+</div>
+<div class="flex justify-between items-end mb-md">
+<h3 class="font-headline-md text-[18px] leading-tight text-on-surface">Paling Laris</h3>
+<a class="font-label-sm text-label-sm text-primary" href="#">Lihat Semua</a>
+</div>
+<div class="grid grid-cols-2 gap-sm">
+<!-- Product Card 1 -->
+<div class="bg-surface rounded-xl overflow-hidden border border-outline-variant">
+<div class="h-32 bg-surface-container w-full relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Close up of an iced latte in a clear tall glass with condensation. Light swirling into the espresso. Clean minimal white background. Studio lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBsN8n_U5aow_z-PLS3MM2eQeHcQRJ-GcvUFVLq-SgigUN2AG08LZggYMtU9AGi5qqHeh0g1lBdcANbn322_qVTo37JFLfO6zM_NDKBLs_dkwgv70lXNHls9HFEHQCoV5gcuYFWMux1-qXOj8QN_NLKLglE-BWUt6uOdOj4NwYGDyAKMh-eR4AgrDvE_IKCPYLM8kMWKCLkxY652Kk2u6k81kT2AuMRiGmh1OJ6mWA52RTWWV5VcB9H')"></div>
+</div>
+<div class="p-sm">
+<div class="font-body-sm text-[12px] text-on-surface font-semibold truncate">Es Kopi Susu Aren</div>
+<div class="font-label-sm text-[12px] text-primary mt-1">Rp 25.000</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-surface rounded-xl overflow-hidden border border-outline-variant">
+<div class="h-32 bg-surface-container w-full relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A clean minimalist shot of a flaky butter croissant on a ceramic plate. Soft morning sunlight. Warm tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDrVaIuF2xrbPOqWKN1W7sMSnxdDxeXwOhgeEnDBD-jZnRl0lLXbzED7w2UiG-98d-NARFQ7orQ-544_g2HQfMmZFN1QPTuJ-5dqZMmO8KCThf97sKO_WD_KwZ4K6v7O_NW7XugfHhUavc6HI7fHYSHgq4HznL1gh0mJSSo8ud84X4FRpHW_QFb82y-p9CZhNO15XYuUCXUvK0vXQF57Ye-sR3hxNY9D7nNP_sG1voQcV_uU9EC7XFY')"></div>
+</div>
+<div class="p-sm">
+<div class="font-body-sm text-[12px] text-on-surface font-semibold truncate">Classic Croissant</div>
+<div class="font-label-sm text-[12px] text-primary mt-1">Rp 18.000</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Right Panel: Properties Editor -->
+<aside class="w-80 flex-shrink-0 bg-surface border-l border-outline-variant flex flex-col h-full z-10 shadow-[-2px_0_12px_rgba(0,0,0,0.02)] overflow-y-auto">
+<div class="p-md border-b border-outline-variant bg-surface sticky top-0 z-20 flex items-center justify-between">
+<div>
+<h2 class="font-label-md text-label-md text-on-surface">Pengaturan Banner</h2>
+<p class="font-body-sm text-[11px] text-on-surface-variant mt-0.5">Edit konten blok terpilih</p>
+</div>
+<button class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-md space-y-lg">
+<!-- Image Section -->
+<div>
+<label class="font-label-md text-label-sm text-on-surface block mb-sm">Gambar Latar</label>
+<div class="border border-outline-variant rounded-xl overflow-hidden group cursor-pointer relative">
+<div class="h-32 w-full bg-surface-container relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A modern, highly polished product banner for a coffee shop. Dark moody lighting, rich espresso tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBuSOSBGUF4fghSvRWyp88Qd4XPY_xPNiQ3Dm2deKsLNUFj5XEnmGZ5mQANR0XbsFzDdKWOK8pBi9SH7FbfvTTw6zFt4-gIWgU_l1TljGk0RqHLutk0vAIJjoscu0EcvI0H_k686mwv4KqRNJCAknFNdafdIc_9CJ9pMTwHc34BsvYL6RUiXjJsjo6nANReko1apflESIU_0umIiM0fipYiX7pyfqjbH8ub_EgqiKpIcIcc3ZE1022b')"></div>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<div class="px-sm py-1 bg-white rounded-full font-label-sm text-[11px] text-on-surface flex items-center gap-1 shadow-md">
+<span class="material-symbols-outlined text-[14px]">edit</span> Ganti
+                                </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Text Content -->
+<div>
+<label class="font-label-md text-label-sm text-on-surface block mb-sm">Konten Teks</label>
+<div class="space-y-md">
+<div>
+<span class="font-body-sm text-[11px] text-on-surface-variant block mb-1">Judul</span>
+<input class="w-full px-md py-sm rounded-lg border border-outline-variant bg-surface font-body-md text-body-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" type="text" value="Koleksi Signature"/>
+</div>
+<div>
+<span class="font-body-sm text-[11px] text-on-surface-variant block mb-1">Sub-judul</span>
+<textarea class="w-full px-md py-sm rounded-lg border border-outline-variant bg-surface font-body-md text-body-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none" rows="2">Nikmati racikan rahasia barista kami.</textarea>
+</div>
+</div>
+</div>
+<!-- Design Tweaks -->
+<div class="pt-md border-t border-outline-variant">
+<label class="font-label-md text-label-sm text-on-surface block mb-md">Tampilan</label>
+<div class="flex items-center justify-between mb-md">
+<span class="font-body-sm text-[12px] text-on-surface-variant">Tinggi Banner</span>
+<select class="px-sm py-1 rounded bg-surface-container border border-outline-variant text-[12px] font-body-sm text-on-surface focus:outline-none focus:border-primary">
+<option>Kecil (Small)</option>
+<option selected="">Sedang (Medium)</option>
+<option>Penuh (Full Screen)</option>
+</select>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-[12px] text-on-surface-variant">Tampilkan Tombol CTA</span>
+<!-- Toggle Switch -->
+<div class="relative inline-block w-10 h-5 align-middle select-none transition duration-200 ease-in cursor-pointer">
+<input class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-surface-container-high appearance-none cursor-pointer z-10 transition-transform duration-200 ease-in-out" id="toggle1" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-container-high cursor-pointer" for="toggle1"></label>
+</div>
+</div>
+</div>
+<div class="pt-lg">
+<button class="w-full px-md py-sm rounded-lg border border-error text-error font-label-md text-label-md hover:bg-error-container transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-[18px]">delete</span> Hapus Blok Ini
+                    </button>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<style>
+/* Scoped Toggle Switch CSS specifically for this snippet since we can't output global styles */
+.toggle-checkbox:checked {
+  right: 0;
+  border-color: var(--tw-colors-primary);
+  transform: translateX(100%);
+}
+.toggle-checkbox:checked + .toggle-label {
+  background-color: var(--tw-colors-primary);
+}
+.toggle-checkbox {
+  right: 50%;
+}
+</style>
+<script>
+// Simple interaction logic to make toggle feel responsive
+document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('toggle1');
+    const label = document.querySelector('label[for="toggle1"]');
+    
+    if(toggle && label) {
+        toggle.addEventListener('change', (e) => {
+            if(e.target.checked) {
+                toggle.style.transform = 'translateX(100%)';
+                toggle.style.borderColor = '#004a33'; // primary color
+                label.style.backgroundColor = '#004a33';
+            } else {
+                toggle.style.transform = 'translateX(0)';
+                toggle.style.borderColor = '#e1e3e2'; // surface-container-high
+                label.style.backgroundColor = '#e1e3e2';
+            }
+        });
+    }
+});
+</script></main></div></body></html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{"colors":{"secondary-fixed":"#d7e6df","inverse-surface":"#2e3131","surface-container-high":"#e6e9e8","surface-dim":"#d8dada","tertiary-fixed-dim":"#ffb3b0","on-tertiary":"#ffffff","on-tertiary-container":"#ffbdba","on-primary":"#ffffff","tertiary":"#6a2d2c","inverse-on-surface":"#eff1f0","secondary-container":"#d7e6df","tertiary-fixed":"#ffdad8","surface-variant":"#e1e3e2","on-secondary-container":"#596762","surface-container-lowest":"#ffffff","on-tertiary-fixed":"#3b080b","tertiary-container":"#874342","on-tertiary-fixed-variant":"#733333","surface":"#f8faf9","on-error":"#ffffff","secondary":"#54615c","primary-fixed-dim":"#8ed5b3","primary-fixed":"#a9f2cf","outline":"#6f7973","outline-variant":"#bfc9c1","on-surface":"#191c1c","inverse-primary":"#8ed5b3","background":"#f8faf9","surface-container-low":"#f2f4f3","error":"#ba1a1a","on-primary-container":"#95dcba","surface-tint":"#216a4f","on-surface-variant":"#3f4943","on-secondary-fixed":"#111e1a","error-container":"#ffdad6","secondary-fixed-dim":"#bbcac3","on-secondary":"#ffffff","primary":"#004a33","surface-container":"#eceeed","on-error-container":"#93000a","on-primary-fixed":"#002115","surface-container-highest":"#e1e3e2","on-primary-fixed-variant":"#005139","on-secondary-fixed-variant":"#3c4a45","on-background":"#191c1c","surface-bright":"#f8faf9","primary-container":"#176348"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"max-width":"1280px","xl":"40px","margin-mobile":"16px","sm":"8px","margin-desktop":"32px","lg":"24px","gutter":"16px","md":"16px","base":"4px","xs":"4px"},"fontFamily":{"body-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"]},"fontSize":{"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}],"body-sm":["14px",{"lineHeight":"1.5","fontWeight":"400"}],"body-md":["16px",{"lineHeight":"1.6","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"1.4","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"1.3","fontWeight":"700"}],"display-lg":["48px",{"lineHeight":"1.2","letterSpacing":"-0.02em","fontWeight":"700"}],"label-md":["14px",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"1.3","letterSpacing":"-0.01em","fontWeight":"700"}],"label-sm":["12px",{"lineHeight":"1.2","fontWeight":"500"}]}}}}</script><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-[240px] bg-white z-50 flex flex-col shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="px-md py-lg mb-md flex items-center gap-sm"><img alt="Kiosku Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQBthJk33eODxCGybqmpScCyM1Ij3X9MmPXmZk8x8rp-e0wUHOSbjk8hcQPyGv7kb3MKNehUJ_KGvr6Uldj-fMwkw5pJxwaNr4SsdlSGpAtWIeV1Cy6PixKqknVMYwb3iABl7Bmc2Hv9NjK2A5p9mOyaFOvNLQLC6nq5HQJhD1PueOQ-8Y232eTa-6Y3-e15LwMxScj1HbEvpB2KjkUFALTRGFj2dVUxNzx6uqksYrXJTqe7qjzd_C"/><span class="font-headline-md text-primary text-headline-md tracking-tight">Kiosku.id</span></div><nav class="flex-1 px-sm space-y-xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-semibold"><a aria-current="page" class="flex items-center gap-md px-md py-sm rounded-lg transition-colors bg-primary-container text-on-primary-container font-semibold" data-path="ringkasan" href="#"><span class="material-symbols-outlined">dashboard</span><span class="font-body-md text-body-md">Ringkasan</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="toko-saya" href="#"><span class="material-symbols-outlined">store</span><span class="font-body-md text-body-md">Toko Saya</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="produk" href="#"><span class="material-symbols-outlined">inventory_2</span><span class="font-body-md text-body-md">Produk</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="pesanan" href="#"><span class="material-symbols-outlined">shopping_cart</span><span class="font-body-md text-body-md">Pesanan</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="tampilan-toko" href="#"><span class="material-symbols-outlined">palette</span><span class="font-body-md text-body-md">Tampilan Toko</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="analitik" href="#"><span class="material-symbols-outlined">analytics</span><span class="font-body-md text-body-md">Analitik</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="saldo" href="#"><span class="material-symbols-outlined">account_balance_wallet</span><span class="font-body-md text-body-md">Saldo</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="langganan" href="#"><span class="material-symbols-outlined">card_membership</span><span class="font-body-md text-body-md">Langganan</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="pengaturan" href="#"><span class="material-symbols-outlined">settings</span><span class="font-body-md text-body-md">Pengaturan</span></a></nav></aside><div class="pl-[240px]"><header class="fixed top-0 left-[240px] right-0 h-16 bg-surface/80 backdrop-blur-xl z-40 px-lg flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-md"><div class="relative group cursor-pointer bg-surface-container px-md py-xs rounded-full flex items-center gap-sm"><span class="material-symbols-outlined text-primary text-body-md">storefront</span><span class="font-label-md text-label-md text-on-surface">Semua Toko</span><span class="material-symbols-outlined text-on-surface-variant">expand_more</span></div></div><div class="flex items-center gap-lg"><button class="p-xs hover:bg-surface-container rounded-full text-on-surface-variant transition-colors"><span class="material-symbols-outlined">notifications</span></button><div class="flex items-center gap-sm pr-xs border-r border-outline-variant h-8"></div><div class="flex items-center gap-sm"><div class="text-right hidden sm:block"><div class="font-label-md text-label-md text-on-surface">Budi Santoso</div><div class="font-label-sm text-label-sm text-on-surface-variant">Merchant</div></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArO-tuLtHtANpDV1zWt4Ozy6QYxD_Qe45pVp247CI5hDrh_mcCv2N6XR3DAywCMVV7XvZ33kt1fcQPzHgAos-iHH3KkXOmyjXnLEzBpV1bzcKA4ea-68zEexP2mpdf4cETsBBJrxAwmmYgDPJKsu1AyMh4I30ejpqqgegH0Xbpi2_QUNAkjSahEwf7f6Jb6elXhULcmW6KGuAZ5D6xwJaPxkP4RoFuQezJplyBw-aHCBax9goAahdU"/></div></div></header><main class="relative pt-16 min-h-screen bg-background"><div class="flex flex-col w-full font-body-md text-on-surface">
+<!-- Navigation (Public Storefront) -->
+<nav class="sticky top-16 z-30 bg-surface/90 backdrop-blur-md px-margin-mobile md:px-margin-desktop py-md flex items-center justify-between border-b border-surface-variant shadow-sm transition-all duration-300">
+<div class="flex items-center gap-lg">
+<span class="font-headline-lg text-headline-lg tracking-tight text-primary">Ruang Rupa</span>
+<div class="hidden md:flex items-center gap-md ml-lg">
+<a class="font-label-md text-label-md text-on-surface hover:text-primary transition-colors" href="#">Home</a>
+<a class="font-label-md text-label-md text-on-surface hover:text-primary transition-colors" href="#">Produk</a>
+<a class="font-label-md text-label-md text-on-surface hover:text-primary transition-colors" href="#">Tentang Kami</a>
+<a class="font-label-md text-label-md text-on-surface hover:text-primary transition-colors" href="#">Kontak</a>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-sm text-on-surface hover:bg-surface-container rounded-full transition-colors relative group">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="p-sm text-on-surface hover:bg-surface-container rounded-full transition-colors relative group">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="md:hidden p-sm text-on-surface hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative w-full h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+<!-- Background Image -->
+<div class="absolute inset-0 w-full h-full">
+<img alt="Elegant interior with natural lighting" class="w-full h-full object-cover object-center animate-[scaleIn_20s_ease-in-out_infinite_alternate]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdCZXZ0YsLGyDMae7n0Luu-GQ2fQi-9dcFkdlqLVodafFZ7M-OSt7EqeepAAxbjK_Zil1ORKnYQNmmVOwZWvvgKOCTFbCs6zq6hr9kFU-NBp46PRntNu0723UGOAFgFGm9rM9kfKzInMEDlC3fGk82iywr7YAIDoil2O8Kse1F6yvKgtDqqaJ7XaM2MS-klm5YQSEI6v3bMJeyvj8uMN3oVVoHkyPcRs-w3bfscFDd1WteGH64TlG5"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface/80 via-surface/30 to-transparent"></div>
+</div>
+<!-- Hero Content -->
+<div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto flex flex-col items-center gap-lg translate-y-8 animate-[slideUp_1s_ease-out_forwards]">
+<span class="font-label-md text-label-md text-primary tracking-widest uppercase bg-surface-container-low/50 px-md py-xs rounded-full backdrop-blur-sm shadow-sm border border-surface-variant">Koleksi Terbaru</span>
+<h1 class="font-display-lg text-display-lg md:text-[64px] md:leading-[1.1] text-on-surface font-light">Seni dalam Keseharian</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Menghadirkan keindahan melalui kurasi produk gaya hidup dan dekorasi rumah yang dirancang dengan penuh kesadaran.</p>
+<button class="mt-md bg-primary text-on-primary font-label-md text-label-md px-xl py-md rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center gap-sm group">
+        Belanja Sekarang
+        <span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Featured Categories Bento Grid -->
+<section class="py-xl md:py-[80px] px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto w-full">
+<div class="flex items-end justify-between mb-lg md:mb-xl">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Eksplorasi Ruang</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Kategori pilihan untuk melengkapi gaya hidup Anda.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md md:gap-lg h-auto md:h-[500px]">
+<!-- Large Item -->
+<a class="group relative col-span-1 md:col-span-2 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow h-[300px] md:h-full block" href="#">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Minimalist living room with natural light, featuring a textured linen sofa, a raw wood coffee table, and large ceramic vases with dried branches. Neutral color palette of beiges, whites, and soft greens. Soft shadows, high-end editorial photography style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDchsOInSkWPOhtyvoXrrXN6Vc-djaGdEjnEly2NUaIAvDiexXpBSerTlGmqwvXBgepHZccYCFKd1H6qYK0nQCHxc3FxUYXqcjBzs4RpRj7dvhZpNYh329A9LHRHggI7dBJcxCFGVYFMiekvpvCZmCGFwX2LSwyd_mTkP-sIuJKvQTRPbVpdUp_Mb3MsFzINeVmPsytRkB0HVR7KdNCKow-KpbRW9iIgSYrLZ6XunpwHo3soP8LQw5N')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-lg w-full flex justify-between items-end">
+<div>
+<h3 class="font-headline-md text-headline-md text-surface">Dekorasi Rumah</h3>
+<p class="font-body-sm text-body-sm text-surface-variant mt-xs">Sentuhan estetika untuk hunian</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface/20 backdrop-blur-md flex items-center justify-center text-surface group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">arrow_outward</span>
+</div>
+</div>
+</a>
+<div class="col-span-1 grid grid-rows-2 gap-md md:gap-lg h-[500px] md:h-full">
+<!-- Small Item 1 -->
+<a class="group relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow block h-full" href="#">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Close up of handmade ceramic mugs and plates on a rustic wooden table. Earthy tones, organic shapes, morning light hitting the textures. High quality artisan craft focus." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCUr3n764wM2XN6Q0x1bG1vmCUsmNz6FxrsWXdCb3QbtjjwTcKiIlExrE-0yhxrl4GC1I8j8LzoMIi9w3rdlpBXuEf5lAP_B9qopLpBJ26O3HR8_V9xE_D3qLTxnMhP__haod1teXEWLI4mlMs-sIzBAwkkg10swb-DvX-bQ_UlLXytgHLTkT9hHOVrVuaSMsEfCTY5oAwf3PyXluWsYCEfRythDXZGutfQNj6gGoe8nORu-wxl2GRw')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/50 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-md w-full flex justify-between items-end">
+<h3 class="font-headline-md text-headline-md text-surface text-lg">Keramik Artisan</h3>
+<div class="w-8 h-8 rounded-full bg-surface/20 backdrop-blur-md flex items-center justify-center text-surface group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</div>
+</div>
+</a>
+<!-- Small Item 2 -->
+<a class="group relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow block h-full" href="#">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Fashion flat lay featuring a loose linen shirt in terracotta, woven rattan bag, and simple leather sandals on a textured concrete surface. Minimalist, warm earthy palette, sophisticated resort wear vibe." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDtOzO700Ft0GBjXVndoPV3Lf3KKn4XwGjrBMKwT73qPtSP7Tr4aqZ7TmPSoAqhUu0teT7lXX6T6_n9_55Es2x1DGQ8U5OzSYTB5Vw8YslDwU9rjUgCvPq1O0ssEaLvb7CoQlWpd9sPd33f0g2WENCo4WNPZlOG_OkQZrH3LNodjAgUsCsgWR87XgBqVb2n7NVoo5npj2BjY7ALUQlJQSMEx6x0lHhURoJ2SIMkfHjcph8odzBjAy4T')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/50 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-md w-full flex justify-between items-end">
+<h3 class="font-headline-md text-headline-md text-surface text-lg">Pakaian &amp; Aksesoris</h3>
+<div class="w-8 h-8 rounded-full bg-surface/20 backdrop-blur-md flex items-center justify-center text-surface group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</div>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- Product Grid Section -->
+<section class="py-xl md:py-[80px] bg-surface-container-low px-margin-mobile md:px-margin-desktop">
+<div class="max-w-max-width mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-xl gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Koleksi Terkurasi</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Penemuan terbaru yang dirancang untuk bertahan lama.</p>
+</div>
+<a class="font-label-md text-label-md text-primary hover:text-primary-container flex items-center gap-xs group" href="#">
+          Lihat Semua Produk
+          <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-x-md gap-y-xl">
+<!-- Product 1 -->
+<div class="group flex flex-col cursor-pointer">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-surface-variant mb-md">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A beautifully crafted rattan armchair with a light teak wood frame, sitting on a natural jute rug against a plain plaster wall. Warm, inviting, highly detailed texture. Modern tropical aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwhLlC_hKqEVyZh9akiDCUKgtOgk9HVfAk7UEBa7gmfR_BMrQHWjSpZ2JxtnBsFram1bLXess3Gx7VKiu-iuT1-CdEkwVx1-UQdHofpDI7MJNL1DO9NtnHSxtDDhdo6TrXNVykvrxEx_AMIEDmByAJryX_0lf56qGBn_toKIOiO8ZzWQHl2QVkJXuwpav6aMIV6_yZpstZgLOY4J1F0NnTrd0Xtwl7DZgt-HmfzVAp9bjfeDBnWevk"/>
+<div class="absolute top-sm right-sm flex flex-col gap-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-x-2 group-hover:translate-x-0">
+<button class="w-10 h-10 bg-surface text-on-surface rounded-full shadow-md flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors" title="Add to Wishlist">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="w-10 h-10 bg-surface text-on-surface rounded-full shadow-md flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors" title="Quick View">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-xs flex-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Mebel</span>
+<h3 class="font-headline-md text-[16px] md:text-[18px] text-on-surface leading-snug line-clamp-2">Kursi Rotan Jati Klasik</h3>
+<div class="mt-auto pt-sm flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary">Rp 1.250.000</span>
+<button class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group flex flex-col cursor-pointer">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-surface-variant mb-md">
+<div class="absolute top-sm left-sm z-10 bg-surface text-on-surface font-label-sm text-label-sm px-2 py-1 rounded-sm shadow-sm">Baru</div>
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A set of two nesting side tables made of solid mindi wood with a subtle whitewash finish. Minimalist design, styled with a small stack of art books and a singular ceramic vase. Studio lighting, soft shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVxghtZZjDBAupai5B_WawPvb4TgjG945TiExPDAC2lnrCMc2JOVVZ5D2NgfSUiV2yrAvnLY0C8Ex135DaP0lTbq4dOUmF8ISA4Zg2ZPL3binMJIEZzM82ZmZYoP-DYLnZNwAwrcTKgDkvUDCt_geHW9JHZExS8MQfBbmtiQNvP__pPC81eQoQcgGPUO1Dd4NduX2Xp62wUgxwU6xKPL3nlOceHHFwduN6fLqOTlVZO48RGyzSb47d"/>
+<div class="absolute top-sm right-sm flex flex-col gap-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-x-2 group-hover:translate-x-0">
+<button class="w-10 h-10 bg-surface text-on-surface rounded-full shadow-md flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-xs flex-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Mebel</span>
+<h3 class="font-headline-md text-[16px] md:text-[18px] text-on-surface leading-snug line-clamp-2">Meja Samping Nesting</h3>
+<div class="mt-auto pt-sm flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary">Rp 850.000</span>
+<button class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="group flex flex-col cursor-pointer">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-surface-variant mb-md">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A beautiful hand-thrown ceramic vase with a speckled oatmeal glaze, holding a few stems of dried pampas grass. Placed on a linen cloth. Soft, moody lighting emphasizing the texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApPMfgoa3oXFh59maLDitXCXe0d2NIC04USggZQnDuugaUo_A7A4RMxae2QQ45Y6T4YBnupm3pWA_klxWk5iFb2RtaM5hUqFhqrkWMJwi7w28gWLKUxW-XB78ufWh5dODE9c7SFeZDmSxWbNIAuVkEjWDdgJL5Ezf8hieXyyxoqHZzGeuaTqXlJm0e3EJjpWNN0QBgXwhE93znmGHdZsU0aMkyU98u7lWM4Jts1Ksf2C_Xz27sc3J4"/>
+<div class="absolute top-sm right-sm flex flex-col gap-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-x-2 group-hover:translate-x-0">
+<button class="w-10 h-10 bg-surface text-on-surface rounded-full shadow-md flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-xs flex-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Dekorasi</span>
+<h3 class="font-headline-md text-[16px] md:text-[18px] text-on-surface leading-snug line-clamp-2">Vas Keramik Bintik</h3>
+<div class="mt-auto pt-sm flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary">Rp 320.000</span>
+<button class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="group flex flex-col cursor-pointer">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-surface-variant mb-md">
+<div class="absolute top-sm left-sm z-10 bg-tertiary text-on-tertiary font-label-sm text-label-sm px-2 py-1 rounded-sm shadow-sm">-20%</div>
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A folded stack of 100% pure linen throws in muted earthy colors: sage green, terracotta, and warm grey. Neatly placed on a woven basket. Soft natural light, high texture detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmVdCFXxsUUUv56f2FQmWB2X-1fYWSLk3EOXGI_nhsr7C7Xu9J2syGYu6x13ff2orqa1hFNim5nD0BEXq67kNe4YwZK3-qUwqxFIixQe5oSEyglQFrCieLBTlX6WXsRxl9IT44n1Zxwwl6ZEMX3oM9t2yYQNZEEGjtBplPyG7v8ApSYwd-4XW2rumzMoB6D1yIn1DMRZm4HxJtCABIBLM0v2lic_at-a_W2xzxVwYZi7wf-rMyu0VM"/>
+<div class="absolute top-sm right-sm flex flex-col gap-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-x-2 group-hover:translate-x-0">
+<button class="w-10 h-10 bg-surface text-on-surface rounded-full shadow-md flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-xs flex-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Tekstil</span>
+<h3 class="font-headline-md text-[16px] md:text-[18px] text-on-surface leading-snug line-clamp-2">Selimut Linen Murni</h3>
+<div class="mt-auto pt-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through text-[12px]">Rp 500.000</span>
+<span class="font-label-md text-label-md text-error">Rp 400.000</span>
+</div>
+<button class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Footer Banner -->
+<section class="py-xl md:py-[100px] bg-primary text-on-primary px-margin-mobile md:px-margin-desktop relative overflow-hidden">
+<!-- Decorative faint background element -->
+<svg class="absolute -top-24 -right-24 w-96 h-96 text-primary-fixed opacity-10 animate-[spin_60s_linear_infinite]" fill="currentColor" viewbox="0 0 100 100">
+<path d="M50 0 L100 50 L50 100 L0 50 Z"></path>
+</svg>
+<div class="max-w-3xl mx-auto text-center relative z-10 flex flex-col items-center gap-md">
+<span class="material-symbols-outlined text-[48px] text-primary-fixed mb-sm">mail</span>
+<h2 class="font-display-lg text-display-lg md:text-[40px] tracking-tight">Bergabung dengan Jurnal Kami</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container max-w-lg mx-auto">Dapatkan inspirasi penataan ruang, penawaran eksklusif, dan cerita di balik karya pengrajin lokal kami, langsung ke kotak masuk Anda.</p>
+<form class="mt-lg w-full max-w-md flex relative">
+<input class="w-full bg-surface text-on-surface px-md py-md rounded-full outline-none focus:ring-2 focus:ring-primary-fixed-dim border border-transparent shadow-md font-body-md text-body-md placeholder:text-on-surface-variant/50" placeholder="Alamat email Anda" type="email"/>
+<button class="absolute right-1 top-1 bottom-1 bg-primary-fixed text-on-primary-fixed font-label-md text-label-md px-lg rounded-full hover:bg-primary-fixed-dim transition-colors shadow-sm" type="button">
+          Langganan
+        </button>
+</form>
+</div>
+</section>
+</div>
+<style>
+  @keyframes scaleIn {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+  }
+  @keyframes slideUp {
+    0% { transform: translateY(30px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+</style></main></div></body></html>

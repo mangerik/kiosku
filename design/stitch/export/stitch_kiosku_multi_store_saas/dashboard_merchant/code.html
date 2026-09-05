@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{"colors":{"secondary-fixed":"#d7e6df","inverse-surface":"#2e3131","surface-container-high":"#e6e9e8","surface-dim":"#d8dada","tertiary-fixed-dim":"#ffb3b0","on-tertiary":"#ffffff","on-tertiary-container":"#ffbdba","on-primary":"#ffffff","tertiary":"#6a2d2c","inverse-on-surface":"#eff1f0","secondary-container":"#d7e6df","tertiary-fixed":"#ffdad8","surface-variant":"#e1e3e2","on-secondary-container":"#596762","surface-container-lowest":"#ffffff","on-tertiary-fixed":"#3b080b","tertiary-container":"#874342","on-tertiary-fixed-variant":"#733333","surface":"#f8faf9","on-error":"#ffffff","secondary":"#54615c","primary-fixed-dim":"#8ed5b3","primary-fixed":"#a9f2cf","outline":"#6f7973","outline-variant":"#bfc9c1","on-surface":"#191c1c","inverse-primary":"#8ed5b3","background":"#f8faf9","surface-container-low":"#f2f4f3","error":"#ba1a1a","on-primary-container":"#95dcba","surface-tint":"#216a4f","on-surface-variant":"#3f4943","on-secondary-fixed":"#111e1a","error-container":"#ffdad6","secondary-fixed-dim":"#bbcac3","on-secondary":"#ffffff","primary":"#004a33","surface-container":"#eceeed","on-error-container":"#93000a","on-primary-fixed":"#002115","surface-container-highest":"#e1e3e2","on-primary-fixed-variant":"#005139","on-secondary-fixed-variant":"#3c4a45","on-background":"#191c1c","surface-bright":"#f8faf9","primary-container":"#176348"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"max-width":"1280px","xl":"40px","margin-mobile":"16px","sm":"8px","margin-desktop":"32px","lg":"24px","gutter":"16px","md":"16px","base":"4px","xs":"4px"},"fontFamily":{"body-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"]},"fontSize":{"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}],"body-sm":["14px",{"lineHeight":"1.5","fontWeight":"400"}],"body-md":["16px",{"lineHeight":"1.6","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"1.4","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"1.3","fontWeight":"700"}],"display-lg":["48px",{"lineHeight":"1.2","letterSpacing":"-0.02em","fontWeight":"700"}],"label-md":["14px",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"1.3","letterSpacing":"-0.01em","fontWeight":"700"}],"label-sm":["12px",{"lineHeight":"1.2","fontWeight":"500"}]}}}}</script><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-[240px] bg-white z-50 flex flex-col shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="px-md py-lg mb-md flex items-center gap-sm"><img alt="Kiosku Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQBthJk33eODxCGybqmpScCyM1Ij3X9MmPXmZk8x8rp-e0wUHOSbjk8hcQPyGv7kb3MKNehUJ_KGvr6Uldj-fMwkw5pJxwaNr4SsdlSGpAtWIeV1Cy6PixKqknVMYwb3iABl7Bmc2Hv9NjK2A5p9mOyaFOvNLQLC6nq5HQJhD1PueOQ-8Y232eTa-6Y3-e15LwMxScj1HbEvpB2KjkUFALTRGFj2dVUxNzx6uqksYrXJTqe7qjzd_C"/><span class="font-headline-md text-primary text-headline-md tracking-tight">Kiosku.id</span></div><nav class="flex-1 px-sm space-y-xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-semibold"><a aria-current="page" class="flex items-center gap-md px-md py-sm rounded-lg transition-colors bg-primary-container text-on-primary-container font-semibold" data-path="ringkasan" href="#"><span class="material-symbols-outlined">dashboard</span><span class="font-body-md text-body-md">Ringkasan</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="toko-saya" href="#"><span class="material-symbols-outlined">store</span><span class="font-body-md text-body-md">Toko Saya</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="produk" href="#"><span class="material-symbols-outlined">inventory_2</span><span class="font-body-md text-body-md">Produk</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="pesanan" href="#"><span class="material-symbols-outlined">shopping_cart</span><span class="font-body-md text-body-md">Pesanan</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="tampilan-toko" href="#"><span class="material-symbols-outlined">palette</span><span class="font-body-md text-body-md">Tampilan Toko</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="analitik" href="#"><span class="material-symbols-outlined">analytics</span><span class="font-body-md text-body-md">Analitik</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="saldo" href="#"><span class="material-symbols-outlined">account_balance_wallet</span><span class="font-body-md text-body-md">Saldo</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="langganan" href="#"><span class="material-symbols-outlined">card_membership</span><span class="font-body-md text-body-md">Langganan</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="pengaturan" href="#"><span class="material-symbols-outlined">settings</span><span class="font-body-md text-body-md">Pengaturan</span></a></nav></aside><div class="pl-[240px]"><header class="fixed top-0 left-[240px] right-0 h-16 bg-surface/80 backdrop-blur-xl z-40 px-lg flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-md"><div class="relative group cursor-pointer bg-surface-container px-md py-xs rounded-full flex items-center gap-sm"><span class="material-symbols-outlined text-primary text-body-md">storefront</span><span class="font-label-md text-label-md text-on-surface">Semua Toko</span><span class="material-symbols-outlined text-on-surface-variant">expand_more</span></div></div><div class="flex items-center gap-lg"><button class="p-xs hover:bg-surface-container rounded-full text-on-surface-variant transition-colors"><span class="material-symbols-outlined">notifications</span></button><div class="flex items-center gap-sm pr-xs border-r border-outline-variant h-8"></div><div class="flex items-center gap-sm"><div class="text-right hidden sm:block"><div class="font-label-md text-label-md text-on-surface">Budi Santoso</div><div class="font-label-sm text-label-sm text-on-surface-variant">Merchant</div></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArO-tuLtHtANpDV1zWt4Ozy6QYxD_Qe45pVp247CI5hDrh_mcCv2N6XR3DAywCMVV7XvZ33kt1fcQPzHgAos-iHH3KkXOmyjXnLEzBpV1bzcKA4ea-68zEexP2mpdf4cETsBBJrxAwmmYgDPJKsu1AyMh4I30ejpqqgegH0Xbpi2_QUNAkjSahEwf7f6Jb6elXhULcmW6KGuAZ5D6xwJaPxkP4RoFuQezJplyBw-aHCBax9goAahdU"/></div></div></header><main class="relative pt-16 min-h-screen bg-background"><div class="flex flex-col w-full pb-xl">
+<div class="px-lg pb-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-xl mt-lg">
+<div class="flex flex-col gap-xs">
+<h1 class="font-headline-lg text-headline-lg text-on-surface m-0">Ringkasan Bisnis</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant m-0">Selamat pagi, Amanda! Berikut performa bisnismu hari ini.</p>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-on-primary font-label-md text-label-md px-lg py-sm rounded-full flex items-center justify-center gap-sm transition-all shadow-md active:scale-95 shrink-0 w-full md:w-auto">
+<span class="material-symbols-outlined text-[18px]">add</span>
+        Tambah Toko Baru
+      </button>
+</div>
+<!-- KPI Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md mb-xl">
+<!-- KPI Card 1 -->
+<div class="bg-surface-container rounded-xl p-md relative overflow-hidden group shadow-sm hover:shadow-md transition-shadow">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[64px] text-primary">payments</span>
+</div>
+<div class="flex flex-col gap-sm relative z-10">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-[18px]">trending_up</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Pendapatan</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface">Rp 12.450.000</div>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span>
+<span class="font-label-sm text-label-sm">12% dari bulan lalu</span>
+</div>
+</div>
+</div>
+<!-- KPI Card 2 -->
+<div class="bg-surface-container rounded-xl p-md relative overflow-hidden group shadow-sm hover:shadow-md transition-shadow">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[64px] text-secondary">shopping_bag</span>
+</div>
+<div class="flex flex-col gap-sm relative z-10">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container text-[18px]">shopping_cart</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Pesanan</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface">142</div>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span>
+<span class="font-label-sm text-label-sm">5% dari bulan lalu</span>
+</div>
+</div>
+</div>
+<!-- KPI Card 3 -->
+<div class="bg-surface-container rounded-xl p-md relative overflow-hidden group shadow-sm hover:shadow-md transition-shadow">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[64px] text-tertiary">inventory_2</span>
+</div>
+<div class="flex flex-col gap-sm relative z-10">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-container text-[18px]">category</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Produk Terjual</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface">850</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="font-label-sm text-label-sm">Total bulan ini</span>
+</div>
+</div>
+</div>
+<!-- KPI Card 4 -->
+<div class="bg-primary text-on-primary rounded-xl p-md relative overflow-hidden group shadow-md hover:shadow-lg transition-shadow">
+<div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-30 transition-opacity">
+<span class="material-symbols-outlined text-[64px]">account_balance_wallet</span>
+</div>
+<div class="flex flex-col gap-sm relative z-10">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-on-primary/20 flex items-center justify-center backdrop-blur-sm">
+<span class="material-symbols-outlined text-on-primary text-[18px]">account_balance</span>
+</div>
+<span class="font-label-md text-label-md opacity-90">Saldo Tersedia</span>
+</div>
+<div class="font-headline-lg text-headline-lg">Rp 8.200.000</div>
+<div class="flex items-center gap-1 mt-auto pt-2">
+<button class="bg-on-primary text-primary font-label-sm text-label-sm px-3 py-1.5 rounded-full hover:bg-on-primary/90 transition-colors">Tarik Saldo</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Area: Chart & Store Performance -->
+<div class="flex flex-col lg:flex-row gap-lg mb-xl">
+<!-- Chart Area -->
+<div class="w-full lg:w-2/3 bg-surface-container rounded-2xl p-lg flex flex-col shadow-sm">
+<div class="flex items-center justify-between mb-md">
+<h2 class="font-headline-md text-headline-md text-on-surface m-0">Tren Pendapatan</h2>
+<select class="bg-surface rounded-full px-4 py-2 font-body-sm text-body-sm text-on-surface-variant appearance-none outline-none focus:ring-2 focus:ring-primary/50 cursor-pointer">
+<option>7 Hari Terakhir</option>
+<option>30 Hari Terakhir</option>
+<option>Tahun Ini</option>
+</select>
+</div>
+<div class="flex-1 min-h-[300px] w-full relative flex items-end pt-8">
+<!-- Simulated Line Chart -->
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 1000 300">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop class="text-primary" offset="0%" stop-color="currentColor" stop-opacity="0.2"></stop>
+<stop class="text-primary" offset="100%" stop-color="currentColor" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Grid Lines -->
+<line class="text-outline-variant opacity-30" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="1000" y1="50" y2="50"></line>
+<line class="text-outline-variant opacity-30" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="1000" y1="150" y2="150"></line>
+<line class="text-outline-variant opacity-30" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1" x1="0" x2="1000" y1="250" y2="250"></line>
+<!-- Chart Area -->
+<path d="M0 250 L0 180 Q 100 150 200 120 T 400 160 T 600 90 T 800 110 T 1000 40 L 1000 300 L 0 300 Z" fill="url(#chartGradient)"></path>
+<!-- Chart Line -->
+<path class="text-primary" d="M0 180 Q 100 150 200 120 T 400 160 T 600 90 T 800 110 T 1000 40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+<!-- Data Points -->
+<circle class="text-primary" cx="200" cy="120" fill="white" r="6" stroke="currentColor" stroke-width="3"></circle>
+<circle class="text-primary" cx="400" cy="160" fill="white" r="6" stroke="currentColor" stroke-width="3"></circle>
+<circle class="text-primary" cx="600" cy="90" fill="white" r="6" stroke="currentColor" stroke-width="3"></circle>
+<circle class="text-primary" cx="800" cy="110" fill="white" r="6" stroke="currentColor" stroke-width="3"></circle>
+<circle class="text-primary" cx="1000" cy="40" fill="white" r="6" stroke="currentColor" stroke-width="3"></circle>
+</svg>
+<!-- X Axis Labels -->
+<div class="absolute bottom-0 w-full flex justify-between text-on-surface-variant font-label-sm text-label-sm px-2 -mb-6">
+<span>Sen</span>
+<span>Sel</span>
+<span>Rab</span>
+<span>Kam</span>
+<span>Jum</span>
+<span>Sab</span>
+<span>Min</span>
+</div>
+</div>
+</div>
+<!-- Store Performance List -->
+<div class="w-full lg:w-1/3 bg-surface-container rounded-2xl p-lg flex flex-col shadow-sm">
+<div class="flex items-center justify-between mb-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface m-0">Performa Toko</h2>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<div class="flex flex-col gap-md">
+<!-- Store 1 -->
+<div class="flex items-center gap-md p-md bg-surface rounded-xl hover:shadow-sm transition-shadow cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A small, stylized icon or logo for a modern cafe named 'Ruang Rupa', using abstract geometric shapes in muted sage green and warm cream colors, minimalist flat design vector style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw5UfysW6gHdMky4XFk5F9IPrMRmoN6avkHvUpwb1pRs7NkvWMgBpSyaFTmIQs2CxVe4NaupMzmgrq3_urxhQeHPB-PYHss_ngQCfbI2VrR0ruCoL6xLHKaqdlobSQKrNaPKSq-l18zFD1V8UZDQIycxoBUtSTFYzWrFHTHiKzObHzbLiWzyb2aWffz9O-3oalsjBP_BxdaAbKDS0GR2-_3ijuVWxDLqP9Uhki7wk-IgoWbKGCmuyw"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="font-label-md text-label-md text-on-surface truncate">Ruang Rupa</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">Cafe &amp; Space</div>
+</div>
+<div class="text-right shrink-0">
+<div class="font-label-md text-label-md text-on-surface">Rp 7.2M</div>
+<div class="font-label-sm text-label-sm text-primary flex items-center justify-end gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> 8.4%
+                    </div>
+</div>
+</div>
+<!-- Store 2 -->
+<div class="flex items-center gap-md p-md bg-surface rounded-xl hover:shadow-sm transition-shadow cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A minimalist logo for a coffee shop named 'Kopi Senja', featuring a simple cup and sunset motif in deep earthy browns and soft orange, clean vector art style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdDqDXO-kb_HrCuvvo7dztqi6MZYL149fBmub2SIVdmWC1TdwFsNEIV2jSOToYgi5uwZXJxDvlW-Yse8SeTUpz-HCygiZR_vQlSgl4J0tWJom0aELWkvrZwOLLbK8N6N9s6USMU0di0Sxqo_P1mwxa8xw4CX25Q91F5zzwsEch3-MWG3Js4BHeDql8d5JY_zm9f6qYraLy04mQsf-M3zr3AMcxss6lTEygIVFG68H7--n7sjv0E8Qa"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="font-label-md text-label-md text-on-surface truncate">Kopi Senja</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate">Coffee Roastery</div>
+</div>
+<div class="text-right shrink-0">
+<div class="font-label-md text-label-md text-on-surface">Rp 5.2M</div>
+<div class="font-label-sm text-label-sm text-primary flex items-center justify-end gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> 4.2%
+                    </div>
+</div>
+</div>
+<button class="mt-auto pt-4 text-primary font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-primary/5 p-2 rounded-lg transition-colors">
+                Lihat Semua Toko <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Recent Orders Table -->
+<div class="bg-surface-container rounded-2xl p-lg shadow-sm">
+<div class="flex items-center justify-between mb-lg">
+<h2 class="font-headline-md text-headline-md text-on-surface m-0">Pesanan Terbaru</h2>
+<button class="text-primary font-label-md text-label-md hover:underline">Lihat Semua</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[600px]">
+<thead>
+<tr class="bg-surface">
+<th class="font-label-sm text-label-sm text-on-surface-variant py-3 px-4 rounded-l-lg font-semibold uppercase tracking-wider">Order ID</th>
+<th class="font-label-sm text-label-sm text-on-surface-variant py-3 px-4 font-semibold uppercase tracking-wider">Pelanggan</th>
+<th class="font-label-sm text-label-sm text-on-surface-variant py-3 px-4 font-semibold uppercase tracking-wider">Toko</th>
+<th class="font-label-sm text-label-sm text-on-surface-variant py-3 px-4 font-semibold uppercase tracking-wider">Status</th>
+<th class="font-label-sm text-label-sm text-on-surface-variant py-3 px-4 rounded-r-lg font-semibold uppercase tracking-wider text-right">Total</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm text-on-surface">
+<!-- Row 1 -->
+<tr class="group hover:bg-surface/50 transition-colors border-b border-outline-variant/30 last:border-0 cursor-pointer">
+<td class="py-4 px-4 font-label-md">#ORD-9921</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-label-sm">DI</div>
+<span>Dimas Ramadhan</span>
+</div>
+</td>
+<td class="py-4 px-4 text-on-surface-variant">Ruang Rupa</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-[11px] uppercase tracking-wide">
+                  Selesai
+                </span>
+</td>
+<td class="py-4 px-4 text-right font-label-md">Rp 125.000</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-surface/50 transition-colors border-b border-outline-variant/30 last:border-0 cursor-pointer">
+<td class="py-4 px-4 font-label-md">#ORD-9920</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container font-label-sm">SA</div>
+<span>Siti Aisyah</span>
+</div>
+</td>
+<td class="py-4 px-4 text-on-surface-variant">Kopi Senja</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-[11px] uppercase tracking-wide">
+                  Proses
+                </span>
+</td>
+<td class="py-4 px-4 text-right font-label-md">Rp 85.000</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-surface/50 transition-colors border-b border-outline-variant/30 last:border-0 cursor-pointer">
+<td class="py-4 px-4 font-label-md">#ORD-9919</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant font-label-sm">BP</div>
+<span>Budi Perkasa</span>
+</div>
+</td>
+<td class="py-4 px-4 text-on-surface-variant">Ruang Rupa</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-[11px] uppercase tracking-wide">
+                  Selesai
+                </span>
+</td>
+<td class="py-4 px-4 text-right font-label-md">Rp 340.000</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group hover:bg-surface/50 transition-colors border-b border-outline-variant/30 last:border-0 cursor-pointer">
+<td class="py-4 px-4 font-label-md">#ORD-9918</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-error-container flex items-center justify-center text-on-error-container font-label-sm">LN</div>
+<span>Lina Nuraeni</span>
+</div>
+</td>
+<td class="py-4 px-4 text-on-surface-variant">Kopi Senja</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-error-container text-on-error-container font-label-sm text-[11px] uppercase tracking-wide">
+                  Dibatalkan
+                </span>
+</td>
+<td class="py-4 px-4 text-right font-label-md line-through text-on-surface-variant">Rp 45.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

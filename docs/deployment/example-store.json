@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-09-03T08:03:22.240Z",
+  "storeId": "02ce7320-c946-422d-a87e-c693c342e955",
+  "name": "Ruang Rona",
+  "slug": "ruang-rona-contoh",
+  "url": "https://kiosku-uji-netlify-0309-02ce7320c946422da87ec693c342e955.netlify.app",
+  "products": 8,
+  "variants": 23,
+  "images": 9,
+  "publishedSections": 4,
+  "imagesAvailable": true,
+  "source": "docs/examples/ruang-rona.json",
+  "mainUrl": "https://kioskuapp.netlify.app"
+}

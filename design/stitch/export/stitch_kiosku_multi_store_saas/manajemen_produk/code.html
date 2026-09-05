@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{"colors":{"secondary-fixed":"#d7e6df","inverse-surface":"#2e3131","surface-container-high":"#e6e9e8","surface-dim":"#d8dada","tertiary-fixed-dim":"#ffb3b0","on-tertiary":"#ffffff","on-tertiary-container":"#ffbdba","on-primary":"#ffffff","tertiary":"#6a2d2c","inverse-on-surface":"#eff1f0","secondary-container":"#d7e6df","tertiary-fixed":"#ffdad8","surface-variant":"#e1e3e2","on-secondary-container":"#596762","surface-container-lowest":"#ffffff","on-tertiary-fixed":"#3b080b","tertiary-container":"#874342","on-tertiary-fixed-variant":"#733333","surface":"#f8faf9","on-error":"#ffffff","secondary":"#54615c","primary-fixed-dim":"#8ed5b3","primary-fixed":"#a9f2cf","outline":"#6f7973","outline-variant":"#bfc9c1","on-surface":"#191c1c","inverse-primary":"#8ed5b3","background":"#f8faf9","surface-container-low":"#f2f4f3","error":"#ba1a1a","on-primary-container":"#95dcba","surface-tint":"#216a4f","on-surface-variant":"#3f4943","on-secondary-fixed":"#111e1a","error-container":"#ffdad6","secondary-fixed-dim":"#bbcac3","on-secondary":"#ffffff","primary":"#004a33","surface-container":"#eceeed","on-error-container":"#93000a","on-primary-fixed":"#002115","surface-container-highest":"#e1e3e2","on-primary-fixed-variant":"#005139","on-secondary-fixed-variant":"#3c4a45","on-background":"#191c1c","surface-bright":"#f8faf9","primary-container":"#176348"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"max-width":"1280px","xl":"40px","margin-mobile":"16px","sm":"8px","margin-desktop":"32px","lg":"24px","gutter":"16px","md":"16px","base":"4px","xs":"4px"},"fontFamily":{"body-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"]},"fontSize":{"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}],"body-sm":["14px",{"lineHeight":"1.5","fontWeight":"400"}],"body-md":["16px",{"lineHeight":"1.6","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"1.4","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"1.3","fontWeight":"700"}],"display-lg":["48px",{"lineHeight":"1.2","letterSpacing":"-0.02em","fontWeight":"700"}],"label-md":["14px",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"1.3","letterSpacing":"-0.01em","fontWeight":"700"}],"label-sm":["12px",{"lineHeight":"1.2","fontWeight":"500"}]}}}}</script><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-[240px] bg-white z-50 flex flex-col shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="px-md py-lg mb-md flex items-center gap-sm"><img alt="Kiosku Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQBthJk33eODxCGybqmpScCyM1Ij3X9MmPXmZk8x8rp-e0wUHOSbjk8hcQPyGv7kb3MKNehUJ_KGvr6Uldj-fMwkw5pJxwaNr4SsdlSGpAtWIeV1Cy6PixKqknVMYwb3iABl7Bmc2Hv9NjK2A5p9mOyaFOvNLQLC6nq5HQJhD1PueOQ-8Y232eTa-6Y3-e15LwMxScj1HbEvpB2KjkUFALTRGFj2dVUxNzx6uqksYrXJTqe7qjzd_C"/><span class="font-headline-md text-primary text-headline-md tracking-tight">Kiosku.id</span></div><nav class="flex-1 px-sm space-y-xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-semibold"><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="ringkasan" href="#"><span class="material-symbols-outlined">dashboard</span><span class="font-body-md text-body-md">Ringkasan</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="toko-saya" href="#"><span class="material-symbols-outlined">store</span><span class="font-body-md text-body-md">Toko Saya</span></a><a aria-current="page" class="flex items-center gap-md px-md py-sm rounded-lg transition-colors bg-primary-container text-on-primary-container font-semibold" data-path="produk" href="#"><span class="material-symbols-outlined">inventory_2</span><span class="font-body-md text-body-md">Produk</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="pesanan" href="#"><span class="material-symbols-outlined">shopping_cart</span><span class="font-body-md text-body-md">Pesanan</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="tampilan-toko" href="#"><span class="material-symbols-outlined">palette</span><span class="font-body-md text-body-md">Tampilan Toko</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="analitik" href="#"><span class="material-symbols-outlined">analytics</span><span class="font-body-md text-body-md">Analitik</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="saldo" href="#"><span class="material-symbols-outlined">account_balance_wallet</span><span class="font-body-md text-body-md">Saldo</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="langganan" href="#"><span class="material-symbols-outlined">card_membership</span><span class="font-body-md text-body-md">Langganan</span></a><a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" data-path="pengaturan" href="#"><span class="material-symbols-outlined">settings</span><span class="font-body-md text-body-md">Pengaturan</span></a></nav></aside><div class="pl-[240px]"><header class="fixed top-0 left-[240px] right-0 h-16 bg-surface/80 backdrop-blur-xl z-40 px-lg flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-md"><div class="relative group cursor-pointer bg-surface-container px-md py-xs rounded-full flex items-center gap-sm"><span class="material-symbols-outlined text-primary text-body-md">storefront</span><span class="font-label-md text-label-md text-on-surface">Semua Toko</span><span class="material-symbols-outlined text-on-surface-variant">expand_more</span></div></div><div class="flex items-center gap-lg"><button class="p-xs hover:bg-surface-container rounded-full text-on-surface-variant transition-colors"><span class="material-symbols-outlined">notifications</span></button><div class="flex items-center gap-sm pr-xs border-r border-outline-variant h-8"></div><div class="flex items-center gap-sm"><div class="text-right hidden sm:block"><div class="font-label-md text-label-md text-on-surface">Budi Santoso</div><div class="font-label-sm text-label-sm text-on-surface-variant">Merchant</div></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArO-tuLtHtANpDV1zWt4Ozy6QYxD_Qe45pVp247CI5hDrh_mcCv2N6XR3DAywCMVV7XvZ33kt1fcQPzHgAos-iHH3KkXOmyjXnLEzBpV1bzcKA4ea-68zEexP2mpdf4cETsBBJrxAwmmYgDPJKsu1AyMh4I30ejpqqgegH0Xbpi2_QUNAkjSahEwf7f6Jb6elXhULcmW6KGuAZ5D6xwJaPxkP4RoFuQezJplyBw-aHCBax9goAahdU"/></div></div></header><main class="relative pt-16 min-h-screen bg-background"><div class="flex flex-col w-full h-full p-margin-desktop gap-lg relative overflow-hidden">
+<!-- Decorative background elements -->
+<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-primary-fixed-dim/20 to-transparent pointer-events-none mix-blend-multiply"></div>
+<div class="absolute -bottom-xl -left-xl w-96 h-96 bg-secondary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-md relative z-10">
+<div class="flex flex-col gap-xs">
+<h1 class="font-display-lg text-display-lg text-on-surface">Manajemen Produk</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Kelola inventaris, sesuaikan harga, dan pantau status produk dari seluruh toko Anda dalam satu tampilan terpusat.</p>
+</div>
+<div class="flex flex-wrap items-center gap-sm mt-md md:mt-0">
+<button class="flex items-center gap-sm px-md py-sm bg-surface-container rounded-lg font-label-md text-label-md text-on-surface hover:bg-surface-container-high transition-colors shadow-sm">
+<span class="material-symbols-outlined text-body-lg">upload</span>
+                Impor CSV
+            </button>
+<button class="flex items-center gap-sm px-md py-sm bg-primary rounded-lg font-label-md text-label-md text-on-primary hover:bg-primary-container hover:text-on-primary-container transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5">
+<span class="material-symbols-outlined text-body-lg">add</span>
+                Tambah Produk
+            </button>
+</div>
+</div>
+<!-- Metrics Cards (Bento style) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md relative z-10">
+<div class="bg-surface p-md rounded-xl shadow-sm flex flex-col justify-between overflow-hidden relative group">
+<div class="absolute top-0 right-0 p-sm opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-display-lg text-primary">inventory_2</span>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-sm">Total Produk</div>
+<div class="flex items-baseline gap-sm">
+<span class="font-headline-lg text-headline-lg text-on-surface">1,248</span>
+<span class="font-body-sm text-body-sm text-primary flex items-center"><span class="material-symbols-outlined text-[16px]">arrow_upward</span>12%</span>
+</div>
+</div>
+<div class="bg-surface p-md rounded-xl shadow-sm flex flex-col justify-between overflow-hidden relative group">
+<div class="absolute top-0 right-0 p-sm opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-display-lg text-secondary">check_circle</span>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-sm">Produk Aktif</div>
+<div class="flex items-baseline gap-sm">
+<span class="font-headline-lg text-headline-lg text-on-surface">1,102</span>
+</div>
+</div>
+<div class="bg-surface p-md rounded-xl shadow-sm flex flex-col justify-between overflow-hidden relative group">
+<div class="absolute top-0 right-0 p-sm opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-display-lg text-error">warning</span>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-sm">Stok Menipis</div>
+<div class="flex items-baseline gap-sm">
+<span class="font-headline-lg text-headline-lg text-error">45</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Butuh restock</span>
+</div>
+</div>
+<div class="bg-primary-container p-md rounded-xl shadow-sm flex flex-col justify-between overflow-hidden relative group text-on-primary-container">
+<div class="absolute top-0 right-0 p-sm opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-display-lg">storefront</span>
+</div>
+<div class="font-label-sm text-label-sm uppercase tracking-wider mb-sm">Toko Aktif</div>
+<div class="flex items-baseline gap-sm">
+<span class="font-headline-lg text-headline-lg">3</span>
+</div>
+</div>
+</div>
+<!-- Controls (Search & Filters) -->
+<div class="flex flex-col lg:flex-row gap-md justify-between items-center bg-surface p-sm rounded-xl shadow-sm relative z-10">
+<div class="w-full lg:w-1/3 relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-[40px] pr-md py-sm bg-surface-container-lowest border-none rounded-lg font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary focus:bg-surface transition-all shadow-sm" placeholder="Cari nama produk, SKU..." type="text"/>
+</div>
+<div class="w-full lg:w-auto flex flex-wrap gap-sm items-center">
+<div class="relative group">
+<button class="flex items-center gap-xs px-md py-sm bg-surface-container-lowest rounded-lg font-label-md text-label-md text-on-surface shadow-sm hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-body-lg text-on-surface-variant">category</span>
+                    Semua Kategori
+                    <span class="material-symbols-outlined text-body-lg">expand_more</span>
+</button>
+</div>
+<div class="relative group">
+<button class="flex items-center gap-xs px-md py-sm bg-surface-container-lowest rounded-lg font-label-md text-label-md text-on-surface shadow-sm hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-body-lg text-on-surface-variant">store</span>
+                    Semua Toko
+                    <span class="material-symbols-outlined text-body-lg">expand_more</span>
+</button>
+</div>
+<button class="p-sm bg-surface-container-lowest rounded-lg text-on-surface-variant hover:text-primary hover:bg-primary-fixed-dim/20 transition-colors shadow-sm ml-auto lg:ml-sm" title="Tampilan Grid">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+</div>
+</div>
+<!-- Data Table Area -->
+<div class="bg-surface rounded-xl shadow-md overflow-hidden relative z-10 flex-1 flex flex-col">
+<div class="overflow-x-auto flex-1">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container sticky top-0 z-20">
+<tr>
+<th class="p-md w-[48px]">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary bg-surface-container-highest border-none cursor-pointer" type="checkbox"/>
+</th>
+<th class="p-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider whitespace-nowrap">Produk</th>
+<th class="p-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider whitespace-nowrap hidden sm:table-cell">Kategori</th>
+<th class="p-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider whitespace-nowrap hidden md:table-cell">Toko</th>
+<th class="p-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider whitespace-nowrap text-right">Stok</th>
+<th class="p-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider whitespace-nowrap text-right">Harga (Rp)</th>
+<th class="p-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider whitespace-nowrap text-center">Status</th>
+<th class="p-md w-[48px]"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-highest font-body-sm text-body-sm text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group cursor-pointer">
+<td class="p-md">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary bg-surface border-outline-variant cursor-pointer" type="checkbox"/>
+</td>
+<td class="p-md">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high overflow-hidden shrink-0 shadow-sm relative">
+<img class="w-full h-full object-cover" data-alt="A high-quality product photo of a modern Indonesian Batik shirt (Baju Batik Modern) folded neatly on a clean white surface. Soft studio lighting highlights the intricate traditional patterns in deep brown and gold against a crisp white background. Professional e-commerce style photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ0pH_H5S9yavGe9HPbzwY4is8Qnyu5MctIg2SfKh1vRmAcA-l4DVh0hq-MFoRXgraDfDi9iixLBTwDQmfNHsokIrXJ7OHkpD1Tfc8O-JEHY6eX5xYyvkZeuJBjOHUvx0Fe5aMiSFEMLIJ0SQrknFFP2Ej_1Y8jXGS2QR8nf57L7ozhR14iuUEuOE8zVTRrm59OCT66RUDtoawwoENY4dSHmU02t9JjvWgKnBnLHBCDOJyEEANSJV7"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-headline-md text-on-surface text-base truncate">Baju Batik Modern</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm truncate">SKU: BTK-001-MD</span>
+</div>
+</div>
+</td>
+<td class="p-md hidden sm:table-cell">
+<span class="inline-flex items-center px-2 py-1 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">Pakaian Pria</span>
+</td>
+<td class="p-md hidden md:table-cell">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">store</span>
+                                Ruang Rupa
+                            </div>
+</td>
+<td class="p-md text-right">
+<span class="font-body-md text-body-md text-on-surface">142</span>
+</td>
+<td class="p-md text-right">
+<span class="font-headline-md text-headline-md text-base text-on-surface whitespace-nowrap">250.000</span>
+</td>
+<td class="p-md text-center">
+<span class="inline-flex items-center gap-xs px-2 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                                Aktif
+                            </span>
+</td>
+<td class="p-md text-right">
+<button class="p-xs text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity hover:bg-surface-container rounded-full">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group cursor-pointer">
+<td class="p-md">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary bg-surface border-outline-variant cursor-pointer" type="checkbox"/>
+</td>
+<td class="p-md">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high overflow-hidden shrink-0 shadow-sm relative">
+<img class="w-full h-full object-cover" data-alt="A professional product shot of an iced coffee with palm sugar (Kopi Susu Gula Aren) in a clear plastic cup with a minimalist logo. Condensation on the cup, rich brown layers of espresso mixing with creamy milk, set against a clean, warm neutral background. E-commerce photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd1KcCAhjq2yPyYQvTh0X5wS0eudWz7dqQaIqo3AuIZ0e5EhSn9JiARFsrsfCmXEL45s595_N515N8w5uaarxWjuodgHx7W7mk245LRitLYvLbmNhvn_BYnGeKfGLTP_JuEcz3JHwicvq9ctymPBDmJY8ETYbeGIDGh2MhCvtvKQK62f6ykyAiFbxxFiXpx8sY8qCZTUUpkIDQeGcDVZBkBIwRo7Yq31j34Cyh0Itt3IzOffSS5jGu"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-headline-md text-on-surface text-base truncate">Kopi Susu Gula Aren</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm truncate">SKU: KSP-AREN-L</span>
+</div>
+</div>
+</td>
+<td class="p-md hidden sm:table-cell">
+<span class="inline-flex items-center px-2 py-1 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">Minuman</span>
+</td>
+<td class="p-md hidden md:table-cell">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">store</span>
+                                Kopi Senja
+                            </div>
+</td>
+<td class="p-md text-right">
+<span class="font-body-md text-body-md text-error flex items-center justify-end gap-xs">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+                                12
+                            </span>
+</td>
+<td class="p-md text-right">
+<span class="font-headline-md text-headline-md text-base text-on-surface whitespace-nowrap">25.000</span>
+</td>
+<td class="p-md text-center">
+<span class="inline-flex items-center gap-xs px-2 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                                Aktif
+                            </span>
+</td>
+<td class="p-md text-right">
+<button class="p-xs text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity hover:bg-surface-container rounded-full">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-lowest transition-colors group cursor-pointer bg-surface-container-lowest/50">
+<td class="p-md">
+<input class="w-4 h-4 rounded text-primary focus:ring-primary bg-surface border-outline-variant cursor-pointer" type="checkbox"/>
+</td>
+<td class="p-md">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high overflow-hidden shrink-0 shadow-sm relative grayscale opacity-70">
+<img class="w-full h-full object-cover" data-alt="A product photo of a woven rattan bag (Tas Rotan Anyaman). Natural beige colors, clean white background, even studio lighting. E-commerce style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbEMqVZgzO5zTOEFgCoO2qNSEEtmIIzMcaPMJtbLqTL1F6vM_ddvR_6rgDkLOgRRzhUmYlHPCK9TYxPi8-EZ3N__CVpimXmTc13buYMri_YoL5n7PCl852th4LV0CHt4bqxkjvbnvaVJC_6SdZihc0aTFQFHXioqpvqubzn4SvXPrFFao3ecS-R_L2R6k-h8c7bzr0cEqM1DtKmH0W7jAJizRNWy05Uws3fpFv7OFnUARQvaSxq-1x"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-md text-headline-md text-on-surface-variant text-base truncate">Tas Rotan Anyaman</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm truncate">SKU: TRS-042</span>
+</div>
+</div>
+</td>
+<td class="p-md hidden sm:table-cell">
+<span class="inline-flex items-center px-2 py-1 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm">Aksesoris</span>
+</td>
+<td class="p-md hidden md:table-cell">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">store</span>
+                                Ruang Rupa
+                            </div>
+</td>
+<td class="p-md text-right">
+<span class="font-body-md text-body-md text-on-surface-variant">0</span>
+</td>
+<td class="p-md text-right">
+<span class="font-headline-md text-headline-md text-base text-on-surface-variant whitespace-nowrap">185.000</span>
+</td>
+<td class="p-md text-center">
+<span class="inline-flex items-center gap-xs px-2 py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+                                Nonaktif
+                            </span>
+</td>
+<td class="p-md text-right">
+<button class="p-xs text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity hover:bg-surface-container rounded-full">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="bg-surface-container-lowest p-sm border-t border-surface-container-highest flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant ml-sm">Menampilkan 1-3 dari 1,248 produk</span>
+<div class="flex items-center gap-xs">
+<button class="p-xs rounded hover:bg-surface-container text-on-surface-variant transition-colors disabled:opacity-50"><span class="material-symbols-outlined text-[20px]">chevron_left</span></button>
+<button class="w-8 h-8 rounded bg-primary text-on-primary font-label-sm text-label-sm flex items-center justify-center">1</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center justify-center transition-colors">2</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center justify-center transition-colors">3</button>
+<span class="text-on-surface-variant font-body-sm text-body-sm mx-xs">...</span>
+<button class="p-xs rounded hover:bg-surface-container text-on-surface-variant transition-colors"><span class="material-symbols-outlined text-[20px]">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div></main></div></body></html>
