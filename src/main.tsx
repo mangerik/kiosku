@@ -8,7 +8,6 @@ import '@fontsource/plus-jakarta-sans/latin-700.css';
 import '@fontsource/plus-jakarta-sans/latin-800.css';
 import './styles.css';
 import { AppProvider } from './lib/context';
-import { repository } from './lib/repository';
 import { Loading, Empty } from './components/ui';
 import Shell from './components/Shell';
 const Landing = lazy(() => import('./pages/Landing'));
@@ -70,68 +69,11 @@ function ScrollToTop() {
   }, [pathname]);
   return null;
 }
-function BoundStoreRoutes({ storeId }: { storeId: string }) {
-  const [slug, setSlug] = React.useState<string | null>();
-  const [failed, setFailed] = React.useState(false);
-  const location = useLocation();
-  React.useEffect(() => {
-    let alive = true;
-    repository
-      .publicStoreSlug(storeId)
-      .then((value) => {
-        if (alive) setSlug(value);
-      })
-      .catch(() => {
-        if (alive) {
-          setFailed(true);
-          setSlug(null);
-        }
-      });
-    return () => {
-      alive = false;
-    };
-  }, [storeId]);
-  if (slug === undefined) return <Loading />;
-  if (!slug)
-    return (
-      <Empty
-        title={failed ? 'Toko belum dapat dimuat' : 'Toko belum tersedia'}
-        description="Coba kembali beberapa saat lagi."
-        action={
-          <button className="btn btn-primary" onClick={() => window.location.reload()}>
-            Muat ulang
-          </button>
-        }
-      />
-    );
-  const prefix = `/toko/${slug}`;
-  const parts = location.pathname.split('/');
-  const suffix = parts[1] === 'toko' ? parts.slice(3).join('/') : '';
-  const target = prefix + (suffix ? `/${suffix}` : '');
-  if (location.pathname !== target) return <Navigate to={target + location.search} replace />;
-  return (
-    <Routes>
-      <Route path="/toko/:slug" element={<Storefront />} />
-      <Route path="/toko/:slug/produk/:productId" element={<Storefront />} />
-      <Route path="/toko/:slug/:page" element={<Storefront />} />
-      <Route path="*" element={<Navigate to={prefix} replace />} />
-    </Routes>
-  );
-}
 function AppRoutes() {
   const domain = import.meta.env.VITE_BASE_DOMAIN || 'kiosku.id';
   const host = window.location.hostname;
   const subdomain = host.endsWith(`.${domain}`) ? host.slice(0, -(domain.length + 1)) : '';
   const location = useLocation();
-  const boundStore = document
-    .querySelector('meta[name="kiosku-store-id"]')
-    ?.getAttribute('content');
-  if (boundStore)
-    return (
-      <Suspense fallback={<Loading />}>
-        <BoundStoreRoutes storeId={boundStore} />
-      </Suspense>
-    );
   if (subdomain && !['www', 'app'].includes(subdomain) && !location.pathname.startsWith('/toko/'))
     return (
       <Navigate

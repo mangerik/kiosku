@@ -42,7 +42,7 @@ describe('Commerce invariants', () => {
     ).toThrow('tidak cukup');
     expect(s.products[0].variants[0].stock).toBe(42);
   });
-  it('credits wallet once after payment and reserves stock once across retries', () => {
+  it('keeps direct store payments out of the platform wallet and reserves stock once', () => {
     const s = seedWorkspace();
     const p = s.products[0];
     const before = balanceOf(s.transactions);
@@ -61,9 +61,10 @@ describe('Commerce invariants', () => {
     expect(() => createOrder(state, { ...input, method: 'transfer' })).toThrow(
       'ID checkout sudah digunakan',
     );
-    const paid = applyCommand(state, { type: 'pay-order', id: order.id, outcome: 'lunas' });
-    const paidAgain = applyCommand(paid, { type: 'pay-order', id: order.id, outcome: 'lunas' });
-    expect(balanceOf(paidAgain.transactions)).toBe(before + order.total);
+    state.orders.find((candidate) => candidate.id === order.id)!.paymentProofSubmitted = true;
+    const paid = applyCommand(state, { type: 'review-payment', id: order.id, decision: 'accept' });
+    expect(paid.orders.find((candidate) => candidate.id === order.id)?.payment).toBe('lunas');
+    expect(balanceOf(paid.transactions)).toBe(before);
   });
   it('restores stock exactly once after failed payment', () => {
     const s = seedWorkspace();

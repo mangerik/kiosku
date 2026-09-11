@@ -1,8 +1,8 @@
 # Koneksi Supabase — 3 September 2026
 
-## Pembaruan: Netlify otomatis
+## Pembaruan pembayaran toko
 
-Migrasi ketiga `202609030003_netlify.sql` sudah diterapkan melalui SQL Editor dalam transaksi. Snapshot definisi `store_json` sebelumnya ada di `store-json-before-netlify.txt`. Kini ada 14 tabel public dengan RLS, tiga bucket (termasuk `deployment-assets` privat), dan delapan tabel Realtime. Fungsi kelima `publish-store` sudah deployed dengan verifikasi JWT pengguna di dalam fungsi; `checkout` diperbarui untuk origin toko terdaftar dan callback alamat toko. Secret Netlify, URL bundle, APP_URL produksi dan ALLOWED_ORIGINS sudah tersimpan. Frontend utama aktif di https://kioskuapp.netlify.app. Rincian ada di [NETLIFY.md](NETLIFY.md). Catatan pemasangan awal di bawah mempertahankan bukti sebelum pembaruan ini.
+Pembayaran storefront menggunakan rekening atau QRIS milik masing-masing toko. Migrasi `202609110004_manual_store_payments.sql` menambah pengaturan pembayaran, bukti privat, dan RPC pemeriksaan pemilik. Migrasi tersebut juga membersihkan sistem deployment per toko yang sudah dihentikan. Terapkan migrasi dan deploy fungsi `checkout`, `payment-proof`, serta `payment-webhook` dari source terbaru.
 
 ## Pembaruan: pendaftaran langsung sementara
 
@@ -34,7 +34,7 @@ Pembaruan akun uji: atas permintaan pengguna, akun merchant `uji.kiosku@example.
 - **SMS:** provider telepon belum aktif.
 - **Pembayaran:** Midtrans server key dan rekening penerimaan platform belum diberikan. Fungsi menolak transaksi sebelum stok/reservasi dibuat jika konfigurasi metode belum lengkap.
 - **Scheduler/email pesanan:** secrets dan scheduler maintenance belum dipasang; Resend belum terhubung. Deploy fungsi tidak berarti job otomatis berjalan.
-- **Domain sendiri:** hosting Netlify sudah aktif (lihat pembaruan di atas). Domain `kiosku.id` dan wildcard DNS/TLS belum diaktifkan; alamat Netlify tidak memerlukannya.
+- **Domain sendiri:** domain `kiosku.id` dan wildcard DNS/TLS belum diaktifkan. Storefront saat ini menggunakan route `/toko/SLUG`.
 
 ## Sebelum menggunakan Supabase CLI berikutnya
 
@@ -42,7 +42,7 @@ CLI belum login pada saat pemasangan, sehingga migrasi diterapkan melalui dashbo
 
 ```sh
 npx supabase login
-npx supabase migration repair 202609030001 202609030002 202609030003 --status applied --project-ref mbackiawysjbjvqlntfs
+npx supabase migration repair 202609030001 202609030002 --status applied --project-ref mbackiawysjbjvqlntfs
 ```
 
 Perintah repair hanya mencatat migrasi yang sudah dipasang; jangan mengulang SQL awal. Untuk perubahan berikutnya tambahkan migrasi baru. Kredensial CLI/database dimasukkan lewat mekanisme login resmi, bukan public anon key.

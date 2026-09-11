@@ -10,8 +10,7 @@
     "test": "vitest run",
     "test:db": "node scripts/check-database.mjs",
     "typecheck": "tsc -b",
-    "check:edge": "deno check --config supabase/deno.json supabase/functions/checkout/index.ts supabase/functions/payment-webhook/index.ts supabase/functions/billing-checkout/index.ts supabase/functions/maintenance/index.ts supabase/functions/publish-store/index.ts",
-    "bundle:storefront": "npm run build && node scripts/package-storefront.mjs",
+    "check:edge": "deno check --config supabase/deno.json supabase/functions/checkout/index.ts supabase/functions/payment-proof/index.ts supabase/functions/payment-webhook/index.ts supabase/functions/billing-checkout/index.ts supabase/functions/maintenance/index.ts",
     "format": "prettier --write src scripts supabase/functions package.json vite.config.ts",
     "test:edge": "deno test --config supabase/deno.json --allow-env supabase/functions/_shared"
   },

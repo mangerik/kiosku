@@ -99,12 +99,33 @@ export function applyCommand(state: Workspace, command: Command): Workspace {
         contact: '',
         policy: 'Hubungi kami untuk pertanyaan pengiriman dan pengembalian.',
         shippingFee: 15000,
+        paymentSettings: {
+          bankEnabled: false,
+          bank: '',
+          bankNumber: '',
+          bankName: '',
+          qrisEnabled: false,
+          qrisImage: '',
+        },
         status: 'draft',
         draft: defaultLayout(command.theme),
         published: null,
         versions: [],
         createdAt: now(),
       });
+      break;
+    }
+    case 'save-payment-settings': {
+      const store = ownedStore(s, command.storeId);
+      const p = command.settings;
+      if (
+        p.bankEnabled &&
+        (!p.bank.trim() || !/^\d{8,20}$/.test(p.bankNumber) || p.bankName.trim().length < 2)
+      )
+        throw new Error('Lengkapi rekening pembayaran dengan benar.');
+      if (p.qrisEnabled && !/^https:\/\//.test(p.qrisImage))
+        throw new Error('Unggah gambar QRIS lebih dulu.');
+      store.paymentSettings = structuredClone(p);
       break;
     }
     case 'save-store': {
@@ -232,6 +253,26 @@ export function applyCommand(state: Workspace, command: Command): Workspace {
       }
       break;
     }
+    case 'review-payment': {
+      const order = s.orders.find((o) => o.id === command.id);
+      if (!order) throw new Error('Pesanan tidak ditemukan.');
+      ownedStore(s, order.storeId);
+      if (order.payment !== 'menunggu') throw new Error('Pembayaran sudah diperiksa.');
+      if (command.decision === 'accept') {
+        if (!order.paymentProofSubmitted) throw new Error('Bukti pembayaran belum diunggah.');
+        order.payment = 'lunas';
+        order.paymentProofRejectedReason = null;
+        order.events.push({ at: now(), text: 'Pembayaran dikonfirmasi pemilik toko.' });
+      } else {
+        const reason = command.reason?.trim();
+        if (!reason) throw new Error('Isi alasan penolakan bukti.');
+        order.paymentProofSubmitted = false;
+        order.paymentProofSubmittedAt = null;
+        order.paymentProofRejectedReason = reason;
+        order.events.push({ at: now(), text: `Bukti pembayaran ditolak: ${reason}` });
+      }
+      break;
+    }
     case 'withdraw': {
       const existing = command.requestId && s.transactions.find((t) => t.id === command.requestId);
       if (existing) {
@@ -319,6 +360,12 @@ export function createOrder(
   const store = s.stores.find((x) => x.id === input.storeId && x.status === 'live');
   if (!store) throw new Error('Toko tidak tersedia.');
   const customer = customerSchema.parse(input.customer);
+  const payment = store.paymentSettings;
+  if (
+    (input.method === 'transfer' && !payment.bankEnabled) ||
+    (input.method === 'qris' && !payment.qrisEnabled)
+  )
+    throw new Error('Metode pembayaran tidak tersedia di toko ini.');
   if (!input.items.length || input.items.length > 50)
     throw new Error('Keranjang kosong atau terlalu banyak item.');
   const quantities = new Map<string, { productId: string; variantId: string; quantity: number }>();
@@ -353,6 +400,13 @@ export function createOrder(
     courier: '',
     createdAt: now(),
     events: [{ at: now(), text: 'Pesanan dibuat. Menunggu pembayaran.' }],
+    paymentInstructions:
+      input.method === 'transfer'
+        ? { bank: payment.bank, number: payment.bankNumber, name: payment.bankName }
+        : { qrisImage: payment.qrisImage },
+    paymentProofSubmitted: false,
+    paymentProofSubmittedAt: null,
+    paymentProofRejectedReason: null,
   };
   if (!Number.isSafeInteger(order.total)) throw new Error('Total pesanan terlalu besar.');
   s.orders.unshift(order);

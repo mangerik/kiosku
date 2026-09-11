@@ -32,22 +32,9 @@ Deno.serve(async (req) => {
     const paid = outcome === 'lunas';
     if (!outcome) return response(200, 'Pending');
     const db = admin();
-    if (order_id.startsWith('SUB-')) {
-      const result = await db.rpc('settle_subscription', {
-        invoice_id: order_id.slice(4),
-        outcome: paid ? 'lunas' : 'gagal',
-        expected_amount: Number(gross_amount),
-      });
-      return result.error ? response(400, result.error.message) : response(200, 'OK');
-    }
-    const { data: order, error } = await db
-      .from('orders')
-      .select('id,method')
-      .eq('code', order_id)
-      .single();
-    if (error || !order || order.method !== 'qris') return response(404, 'Order not found');
-    const result = await db.rpc('settle_order', {
-      order_id: order.id,
+    if (!order_id.startsWith('SUB-')) return response(404, 'Invoice not found');
+    const result = await db.rpc('settle_subscription', {
+      invoice_id: order_id.slice(4),
       outcome: paid ? 'lunas' : 'gagal',
       expected_amount: Number(gross_amount),
     });

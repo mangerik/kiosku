@@ -47,7 +47,7 @@ export default function Wallet() {
     <>
       <PageHeading
         title="Saldo & transaksi"
-        description="Satu dompet untuk setiap langkah bisnismu."
+        description="Riwayat dana yang pernah diproses melalui platform."
         action={
           <Button
             onClick={() => {
@@ -61,6 +61,10 @@ export default function Wallet() {
           </Button>
         }
       />
+      <div className="info-box wallet-direct-payment-note">
+        Pembayaran toko manual masuk langsung ke rekening atau QRIS milik toko dan tidak menambah
+        saldo Kiosku.
+      </div>
       <div className="wallet-grid">
         <Panel className="balance-card">
           <div>

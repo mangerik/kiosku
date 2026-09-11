@@ -12,7 +12,7 @@ import {
 } from '@phosphor-icons/react';
 import Papa from 'papaparse';
 import { useApp } from '../lib/context';
-import { isDemo } from '../lib/repository';
+import { isDemo, repository } from '../lib/repository';
 import type { OrderStatus } from '../lib/types';
 import { date, downloadText, money, orderLabels, safeImage, errorText } from '../lib/utils';
 import {
@@ -167,6 +167,9 @@ export function OrderDetail() {
   const [tracking, setTracking] = useState(o?.tracking || '');
   const [courier, setCourier] = useState(o?.courier || 'JNE');
   const [confirm, setConfirm] = useState<OrderStatus | null>(null);
+  const [paymentReview, setPaymentReview] = useState<'accept' | 'reject' | null>(null);
+  const [rejectionReason, setRejectionReason] = useState('');
+  const [proofUrl, setProofUrl] = useState('');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [printMode, setPrintMode] = useState<'invoice' | 'label'>('invoice');
@@ -264,36 +267,65 @@ export function OrderDetail() {
             <Badge status={o.payment} />
             <p>{o.method === 'qris' ? 'QRIS' : 'Transfer bank'}</p>
             {o.payment === 'menunggu' && (
-              <>
-                {isDemo && (
+              <div className="form-stack payment-review">
+                {o.paymentProofRejectedReason && (
                   <div className="info-box">
-                    Simulasi demo: tombol ini tidak memindahkan uang sungguhan.
+                    Bukti terakhir ditolak: {o.paymentProofRejectedReason}
                   </div>
                 )}
-                <Button
-                  disabled={busy || !isDemo}
-                  onClick={async () => {
-                    setBusy(true);
-                    try {
-                      await run(
-                        { type: 'pay-order', id: o.id, outcome: 'lunas' },
-                        'Pembayaran terkonfirmasi. Saldo akun diperbarui.',
-                      );
-                    } catch {
-                      /* toast */
-                    } finally {
-                      setBusy(false);
-                    }
-                  }}
-                >
-                  <CheckCircle />
-                  {isDemo
-                    ? 'Simulasikan pembayaran'
-                    : o.method === 'transfer'
-                      ? 'Menunggu pemeriksaan transfer'
-                      : 'Menunggu konfirmasi gateway'}
-                </Button>
-              </>
+                {o.paymentProofSubmitted ? (
+                  <>
+                    <div className="info-box">
+                      Pembeli sudah mengunggah bukti. Cocokkan nominal dan mutasi rekening/QRIS
+                      sebelum menyetujui.
+                    </div>
+                    {proofUrl && (
+                      <img
+                        className="payment-proof-image"
+                        src={safeImage(proofUrl)}
+                        alt={`Bukti pembayaran ${o.code}`}
+                      />
+                    )}
+                    <Button
+                      variant="secondary"
+                      disabled={busy || isDemo}
+                      onClick={async () => {
+                        setBusy(true);
+                        setError('');
+                        try {
+                          setProofUrl(await repository.paymentProofUrl(o.id));
+                        } catch (e) {
+                          setError(errorText(e));
+                        } finally {
+                          setBusy(false);
+                        }
+                      }}
+                    >
+                      {isDemo
+                        ? 'Bukti tersedia di mode demo'
+                        : proofUrl
+                          ? 'Muat ulang bukti'
+                          : 'Lihat bukti pembayaran'}
+                    </Button>
+                    <div className="payment-review-actions">
+                      <Button disabled={busy} onClick={() => setPaymentReview('accept')}>
+                        <CheckCircle />
+                        Konfirmasi lunas
+                      </Button>
+                      <Button
+                        variant="danger"
+                        disabled={busy}
+                        onClick={() => setPaymentReview('reject')}
+                      >
+                        Tolak bukti
+                      </Button>
+                    </div>
+                  </>
+                ) : (
+                  <p className="muted">Menunggu pembeli mengunggah bukti pembayaran.</p>
+                )}
+                <FormError message={error} />
+              </div>
             )}
           </Panel>
           <Panel className="padded">
@@ -399,6 +431,71 @@ export function OrderDetail() {
               Konfirmasi
             </Button>
           </div>
+        </Modal>
+      )}
+      {paymentReview && (
+        <Modal
+          title={paymentReview === 'accept' ? 'Konfirmasi pembayaran?' : 'Tolak bukti pembayaran'}
+          onClose={() => setPaymentReview(null)}
+        >
+          <form
+            className="form-stack"
+            onSubmit={async (e) => {
+              e.preventDefault();
+              setBusy(true);
+              setError('');
+              try {
+                await run(
+                  {
+                    type: 'review-payment',
+                    id: o.id,
+                    decision: paymentReview,
+                    reason: rejectionReason,
+                  },
+                  paymentReview === 'accept'
+                    ? 'Pesanan ditandai lunas.'
+                    : 'Bukti ditolak. Pembeli dapat mengunggah bukti baru.',
+                );
+                setPaymentReview(null);
+                setRejectionReason('');
+                setProofUrl('');
+              } catch (e) {
+                setError(errorText(e));
+              } finally {
+                setBusy(false);
+              }
+            }}
+          >
+            <p>
+              {paymentReview === 'accept'
+                ? `Pastikan ${money(o.total)} sudah diterima. Konfirmasi ini menandai ${o.code} sebagai lunas.`
+                : 'Jelaskan masalah pada bukti agar pembeli dapat memperbaikinya.'}
+            </p>
+            {paymentReview === 'reject' && (
+              <Field label="Alasan penolakan">
+                <Input
+                  required
+                  minLength={2}
+                  maxLength={250}
+                  value={rejectionReason}
+                  onChange={(e) => setRejectionReason(e.target.value)}
+                  placeholder="Contoh: nominal transfer belum sesuai"
+                />
+              </Field>
+            )}
+            <FormError message={error} />
+            <Button
+              type="submit"
+              variant={paymentReview === 'reject' ? 'danger' : undefined}
+              disabled={busy}
+            >
+              {busy
+                ? 'Menyimpan...'
+                : paymentReview === 'accept'
+                  ? 'Ya, pembayaran diterima'
+                  : 'Tolak dan minta bukti baru'}
+            </Button>
+          </form>
         </Modal>
       )}
       <div className={`print-document ${printMode}`}>

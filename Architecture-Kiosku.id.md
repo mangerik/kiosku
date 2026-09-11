@@ -10,7 +10,7 @@
 | Payment Gateway | Midtrans / Xendit (evaluasi biaya & dukungan QRIS) | Dukungan metode pembayaran lokal lengkap |
 | Mobile (fase depan) | Capacitor | Reuse codebase React untuk wrapper mobile |
 | Desktop (fase depan) | Electron | Reuse codebase React untuk dashboard desktop |
-| Hosting Frontend | Vercel/Netlify (dengan wildcard subdomain routing) | Mendukung multi-toko via subdomain |
+| Hosting Frontend | Hosting SPA dengan wildcard subdomain routing | Mendukung multi-toko via subdomain |
 
 ---
 

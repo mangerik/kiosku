@@ -1,8 +1,5 @@
 import type { Order, Product, Transaction, Store } from './types';
-export const storefrontUrl = (store: Store) =>
-  store.publicUrl && /^https:\/\/[a-z0-9-]+\.netlify\.app$/.test(store.publicUrl)
-    ? store.publicUrl
-    : `/toko/${store.slug}`;
+export const storefrontUrl = (store: Store) => `/toko/${store.slug}`;
 export const money = (n: number) =>
   new Intl.NumberFormat('id-ID', {
     style: 'currency',

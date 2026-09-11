@@ -4,29 +4,14 @@ export function admin() {
     auth: { persistSession: false, autoRefreshToken: false },
   });
 }
-const storeOrigins = new WeakSet<Request>();
-export async function allowStoreOrigin(request: Request) {
-  const origin = request.headers.get('origin') || '';
-  if (!/^https:\/\/[a-z0-9-]+\.netlify\.app$/.test(origin)) return;
-  try {
-    const { data, error } = await admin()
-      .from('store_deployments')
-      .select('store_id')
-      .eq('public_url', origin)
-      .limit(1)
-      .maybeSingle();
-    if (data && !error) storeOrigins.add(request);
-  } catch {
-    /* no matching deployment, no cross-origin access */
-  }
-}
+export async function allowStoreOrigin(_request: Request) {}
 export function cors(request: Request) {
   const origin = request.headers.get('origin') || '';
   const allowed = (
     Deno.env.get('ALLOWED_ORIGINS') || 'http://127.0.0.1:5173,http://localhost:5173'
   ).split(',');
   const domain = Deno.env.get('BASE_DOMAIN') || 'kiosku.id';
-  let permitted = allowed.includes(origin) || storeOrigins.has(request);
+  let permitted = allowed.includes(origin);
   try {
     const u = new URL(origin);
     permitted ||=

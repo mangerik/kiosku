@@ -99,10 +99,7 @@ export default function Stores() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {store.publicUrl
-                  ? new URL(storefrontUrl(store), window.location.origin).host
-                  : `Lihat toko / ${store.slug}`}{' '}
-                <ArrowUpRight size={14} />
+                {`Lihat toko / ${store.slug}`} <ArrowUpRight size={14} />
               </a>
               <div className="store-card-metrics">
                 <div>

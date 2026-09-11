@@ -1,6 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Bank, UploadSimple, GearSix } from '@phosphor-icons/react';
+import {
+  ShieldCheck,
+  Bank,
+  UploadSimple,
+  GearSix,
+  QrCode,
+  CreditCard,
+} from '@phosphor-icons/react';
 import { useApp } from '../lib/context';
 import { repository, isDemo } from '../lib/repository';
 import { errorText } from '../lib/utils';
@@ -17,7 +24,7 @@ import {
   Empty,
   Select,
 } from '../components/ui';
-import type { Store } from '../lib/types';
+import type { Store, StorePaymentSettings } from '../lib/types';
 export default function Settings() {
   const { data: d, activeStore, run } = useApp();
   const [name, setName] = useState(d?.account.name || '');
@@ -74,7 +81,14 @@ export default function Settings() {
           <p>Pilih toko di bagian atas untuk mengatur detailnya.</p>
         </div>
         {store ? (
-          <StoreSettings key={store.id} store={store} />
+          <>
+            <StoreSettings key={store.id} store={store} />
+            <div>
+              <h2>Pembayaran toko</h2>
+              <p>Dana ditransfer langsung oleh pembeli ke rekening atau QRIS toko ini.</p>
+            </div>
+            <PaymentSettings key={`payment-${store.id}`} store={store} />
+          </>
         ) : (
           <Panel>
             <Empty title="Belum ada toko" action={<Link to="/app/toko/baru">Buat toko</Link>} />
@@ -82,6 +96,156 @@ export default function Settings() {
         )}
       </div>
     </>
+  );
+}
+const emptyPayment: StorePaymentSettings = {
+  bankEnabled: false,
+  bank: '',
+  bankNumber: '',
+  bankName: '',
+  qrisEnabled: false,
+  qrisImage: '',
+};
+function PaymentSettings({ store }: { store: Store }) {
+  const { run, toast } = useApp();
+  const [payment, setPayment] = useState<StorePaymentSettings>(
+    store.paymentSettings || emptyPayment,
+  );
+  const [busy, setBusy] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [error, setError] = useState('');
+  return (
+    <Panel className="padded payment-settings-panel">
+      <h3>
+        <CreditCard /> Metode pembayaran langsung
+      </h3>
+      <div className="info-box">
+        Kiosku tidak menahan dana. Periksa mutasi rekening atau aplikasi QRIS sebelum menyetujui
+        bukti pembayaran.
+      </div>
+      <form
+        className="form-stack"
+        onSubmit={async (e) => {
+          e.preventDefault();
+          setBusy(true);
+          setError('');
+          try {
+            await run(
+              { type: 'save-payment-settings', storeId: store.id, settings: payment },
+              'Pengaturan pembayaran tersimpan.',
+            );
+          } catch (e) {
+            setError(errorText(e));
+          } finally {
+            setBusy(false);
+          }
+        }}
+      >
+        <label className="payment-toggle">
+          <input
+            type="checkbox"
+            checked={payment.bankEnabled}
+            onChange={(e) => setPayment({ ...payment, bankEnabled: e.target.checked })}
+          />
+          <span>
+            <Bank size={22} />
+            <strong>Transfer bank</strong>
+            <small>Tampilkan rekening toko saat checkout.</small>
+          </span>
+        </label>
+        {payment.bankEnabled && (
+          <div className="payment-settings-fields">
+            <Field label="Bank">
+              <Input
+                required
+                value={payment.bank}
+                maxLength={50}
+                placeholder="Contoh: BCA"
+                onChange={(e) => setPayment({ ...payment, bank: e.target.value })}
+              />
+            </Field>
+            <Field label="Nomor rekening">
+              <Input
+                required
+                inputMode="numeric"
+                pattern="[0-9]{8,20}"
+                value={payment.bankNumber}
+                onChange={(e) => setPayment({ ...payment, bankNumber: e.target.value })}
+              />
+            </Field>
+            <Field label="Nama pemilik rekening">
+              <Input
+                required
+                value={payment.bankName}
+                maxLength={100}
+                onChange={(e) => setPayment({ ...payment, bankName: e.target.value })}
+              />
+            </Field>
+          </div>
+        )}
+        <label className="payment-toggle">
+          <input
+            type="checkbox"
+            checked={payment.qrisEnabled}
+            onChange={(e) => setPayment({ ...payment, qrisEnabled: e.target.checked })}
+          />
+          <span>
+            <QrCode size={22} />
+            <strong>QRIS toko</strong>
+            <small>Pembeli memindai QRIS lalu mengunggah bukti.</small>
+          </span>
+        </label>
+        {payment.qrisEnabled && (
+          <div className="qris-setting">
+            {payment.qrisImage && <img src={payment.qrisImage} alt="QRIS toko" />}
+            <label className="btn btn-secondary">
+              <UploadSimple />{' '}
+              {uploading
+                ? 'Mengunggah...'
+                : payment.qrisImage
+                  ? 'Ganti gambar QRIS'
+                  : 'Unggah gambar QRIS'}
+              <input
+                type="file"
+                hidden
+                accept="image/jpeg,image/png,image/webp"
+                disabled={uploading}
+                onChange={async (e) => {
+                  const file = e.target.files?.[0];
+                  if (!file) return;
+                  setUploading(true);
+                  setError('');
+                  try {
+                    setPayment({
+                      ...payment,
+                      qrisImage: await repository.upload(file, 'products'),
+                    });
+                  } catch (e) {
+                    setError(errorText(e));
+                    toast(errorText(e), true);
+                  } finally {
+                    setUploading(false);
+                    e.target.value = '';
+                  }
+                }}
+              />
+            </label>
+            <small>
+              Gunakan QRIS statis milik tokomu. Pastikan nama merchant pada QRIS sudah benar.
+            </small>
+          </div>
+        )}
+        {!payment.bankEnabled && !payment.qrisEnabled && (
+          <p className="muted">
+            Checkout dinonaktifkan sampai minimal satu metode pembayaran diaktifkan.
+          </p>
+        )}
+        <FormError message={error} />
+        <Button type="submit" disabled={busy || uploading}>
+          {busy ? 'Menyimpan...' : 'Simpan pembayaran'}
+        </Button>
+      </form>
+    </Panel>
   );
 }
 function StoreSettings({ store }: { store: Store }) {

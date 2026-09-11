@@ -56,30 +56,6 @@ async function rpc<T>(name: string, params = {}): Promise<T> {
   return data as T;
 }
 export const repository = {
-  async publishStatus(
-    storeId: string,
-    action: 'publish' | 'status' = 'status',
-  ): Promise<{ state: string; url?: string; error?: string }> {
-    const { data, error } = await client().functions.invoke('publish-store', {
-      body: { storeId, action },
-    });
-    if (error) {
-      let message = error.message;
-      if (error.context instanceof Response) {
-        try {
-          message = (await error.context.json()).error || message;
-        } catch {
-          /* keep transport error */
-        }
-      }
-      throw new Error(message);
-    }
-    if (data?.error) throw new Error(data.error);
-    return data;
-  },
-  async publicStoreSlug(storeId: string) {
-    return rpc<string | null>('public_store_slug', { target_store: storeId });
-  },
   async subscribe(tier: Tier) {
     const key = `kiosku.subscription.${tier}`;
     const requestId = sessionStorage.getItem(key) || uid();
@@ -162,16 +138,24 @@ export const repository = {
         writeLocal(s);
         return s;
       });
-    if (command.type === 'publish') {
-      let result = await this.publishStatus(command.storeId, 'publish');
-      for (let attempt = 0; result.state !== 'ready' && attempt < 35; attempt++) {
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-        result = await this.publishStatus(command.storeId);
-      }
-      if (result.state !== 'ready')
-        throw new Error(
-          'Netlify masih menyiapkan toko. Klik Cek status publish untuk melanjutkan.',
-        );
+    if (command.type === 'save-payment-settings') {
+      await rpc('save_store_payment', {
+        target_store: command.storeId,
+        settings: command.settings,
+      });
+    } else if (command.type === 'review-payment') {
+      await rpc('review_store_payment', {
+        target_order: command.id,
+        decision: command.decision,
+        rejection_reason: command.reason || '',
+      });
+    } else if (command.type === 'update-order') {
+      await rpc('update_store_order', {
+        target_order: command.id,
+        next_status: command.status,
+        tracking_number: command.tracking,
+        courier_name: command.courier,
+      });
     } else await rpc('merchant_command', { command });
     return this.load();
   },
@@ -210,6 +194,40 @@ export const repository = {
   async track(code: string, token: string): Promise<Order | null> {
     if (isDemo) return readLocal().orders.find((o) => o.code === code && o.token === token) || null;
     return rpc('track_order', { order_code: code, access_token: token });
+  },
+  async submitPaymentProof(code: string, token: string, file: File) {
+    if (
+      !['image/jpeg', 'image/png', 'image/webp'].includes(file.type) ||
+      file.size > 3 * 1024 * 1024
+    )
+      throw new Error('Gunakan bukti JPG, PNG, atau WebP maksimal 3 MB.');
+    if (isDemo) {
+      const s = readLocal();
+      const order = s.orders.find((o) => o.code === code && o.token === token);
+      if (!order || order.payment !== 'menunggu') throw new Error('Pesanan tidak tersedia.');
+      order.paymentProofSubmitted = true;
+      order.paymentProofSubmittedAt = new Date().toISOString();
+      order.paymentProofRejectedReason = null;
+      order.events.push({ at: new Date().toISOString(), text: 'Bukti pembayaran diunggah.' });
+      writeLocal(s);
+      return;
+    }
+    const form = new FormData();
+    form.set('action', 'upload');
+    form.set('code', code);
+    form.set('token', token);
+    form.set('file', file);
+    const { data, error } = await client().functions.invoke('payment-proof', { body: form });
+    if (error || data?.error) throw new Error(data?.error || error?.message);
+  },
+  async paymentProofUrl(orderId: string) {
+    if (isDemo) return '';
+    const { data, error } = await client().functions.invoke('payment-proof', {
+      body: { action: 'view', orderId },
+    });
+    if (error || data?.error || !data?.url)
+      throw new Error(data?.error || error?.message || 'Bukti pembayaran belum tersedia.');
+    return data.url as string;
   },
   async upload(file: File, kind: 'products' | 'verification') {
     if (

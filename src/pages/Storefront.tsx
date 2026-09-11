@@ -430,7 +430,18 @@ function CartCheckout({
     postalCode: '',
     note: '',
   });
-  const [method, setMethod] = useState<'transfer' | 'qris'>('qris');
+  const paymentSettings = store.paymentSettings || {
+    bankEnabled: false,
+    bank: '',
+    bankNumber: '',
+    bankName: '',
+    qrisEnabled: false,
+    qrisImage: '',
+  };
+  const availableMethods = (['qris', 'transfer'] as const).filter((value) =>
+    value === 'qris' ? paymentSettings.qrisEnabled : paymentSettings.bankEnabled,
+  );
+  const [method, setMethod] = useState<'transfer' | 'qris'>(availableMethods[0] || 'transfer');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [requestId] = useState(() => {
@@ -562,7 +573,7 @@ function CartCheckout({
                 </Field>
                 <h2>Metode pembayaran</h2>
                 <div className="payment-methods">
-                  {(['qris', 'transfer'] as const).map((m) => (
+                  {availableMethods.map((m) => (
                     <label className={method === m ? 'selected' : ''} key={m}>
                       <input
                         type="radio"
@@ -575,12 +586,18 @@ function CartCheckout({
                         <strong>{m === 'qris' ? 'QRIS' : 'Transfer bank manual'}</strong>
                         <small>
                           {m === 'qris'
-                            ? 'Bayar melalui aplikasi pembayaran pilihanmu'
-                            : 'Pembayaran dikonfirmasi setelah dana diterima'}
+                            ? 'Pindai QRIS milik toko lalu unggah bukti'
+                            : 'Transfer langsung ke rekening milik toko'}
                         </small>
                       </span>
                     </label>
                   ))}
+                  {!availableMethods.length && (
+                    <div className="info-box">
+                      Toko belum mengaktifkan metode pembayaran. Hubungi pemilik toko sebelum
+                      checkout.
+                    </div>
+                  )}
                 </div>
               </div>
             ) : (
@@ -672,7 +689,11 @@ function CartCheckout({
             )}
             <FormError message={error} />
             {checkout ? (
-              <Button className="shop-btn" type="submit" disabled={busy || invalid}>
+              <Button
+                className="shop-btn"
+                type="submit"
+                disabled={busy || invalid || !availableMethods.length}
+              >
                 {busy ? 'Membuat pesanan...' : 'Buat pesanan'}
                 <ArrowRight />
               </Button>
@@ -701,7 +722,8 @@ function Tracking({ slug }: { slug: string }) {
   const [order, setOrder] = useState<Order | null>(null);
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
-  const { toast, run } = useApp();
+  const [proofFile, setProofFile] = useState<File | null>(null);
+  const { toast } = useApp();
   useEffect(() => {
     const c = params.get('code'),
       t = params.get('token');
@@ -757,35 +779,9 @@ function Tracking({ slug }: { slug: string }) {
             </div>
             {order.payment === 'menunggu' && (
               <div className="payment-instructions">
-                {isDemo ? (
-                  <>
-                    <div className="info-box">
-                      Mode demo. Simulasi berikut memperbarui status pesanan dan saldo lokal tanpa
-                      transaksi sungguhan.
-                    </div>
-                    <Button
-                      disabled={busy}
-                      onClick={async () => {
-                        setBusy(true);
-                        try {
-                          await run(
-                            { type: 'pay-order', id: order.id, outcome: 'lunas' },
-                            'Simulasi pembayaran berhasil.',
-                          );
-                          setOrder(await repository.track(order.code, order.token));
-                        } catch (e) {
-                          toast(errorText(e), true);
-                        } finally {
-                          setBusy(false);
-                        }
-                      }}
-                    >
-                      Simulasikan pembayaran berhasil
-                    </Button>
-                  </>
-                ) : order.method === 'transfer' && order.paymentInstructions ? (
+                {order.method === 'transfer' && order.paymentInstructions ? (
                   <div className="form-stack">
-                    <strong>Transfer ke rekening penerimaan platform</strong>
+                    <strong>Transfer langsung ke rekening toko</strong>
                     <p>
                       {order.paymentInstructions.bank}
                       <br />
@@ -795,24 +791,73 @@ function Tracking({ slug }: { slug: string }) {
                     </p>
                     <p>
                       Transfer tepat {money(order.total)} dan cantumkan {order.code} pada berita
-                      transfer. Batas pembayaran 24 jam sejak pesanan dibuat. Status berubah setelah
-                      mutasi bank diperiksa pengelola.
+                      transfer. Status berubah setelah pemilik toko memeriksa bukti dan mutasi
+                      rekening.
                     </p>
                   </div>
-                ) : order.paymentUrl && /^https:\/\//.test(order.paymentUrl) ? (
-                  <a
-                    className="btn shop-btn"
-                    href={order.paymentUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Lanjutkan pembayaran <ArrowRight />
-                  </a>
+                ) : order.method === 'qris' && order.paymentInstructions?.qrisImage ? (
+                  <div className="form-stack qris-instructions">
+                    <strong>Pindai QRIS milik toko</strong>
+                    <img
+                      src={safeImage(order.paymentInstructions.qrisImage)}
+                      alt="QRIS pembayaran toko"
+                    />
+                    <p>Bayar tepat {money(order.total)}, lalu unggah bukti pembayaran di bawah.</p>
+                  </div>
                 ) : (
                   <p>
-                    Tautan pembayaran belum tersedia. Hubungi toko dengan nomor pesanan ini. Jangan
-                    melakukan transfer di luar halaman pembayaran.
+                    Petunjuk pembayaran tidak tersedia. Hubungi pemilik toko dengan nomor pesanan
+                    ini.
                   </p>
+                )}
+                {order.paymentProofRejectedReason && (
+                  <div className="proof-rejected">
+                    <strong>Bukti perlu diperbaiki</strong>
+                    <span>{order.paymentProofRejectedReason}</span>
+                  </div>
+                )}
+                {order.paymentProofSubmitted ? (
+                  <div className="proof-submitted">
+                    <CheckCircle />
+                    <div>
+                      <strong>Bukti sudah dikirim</strong>
+                      <small>Menunggu pemilik toko memeriksa pembayaranmu.</small>
+                    </div>
+                  </div>
+                ) : (
+                  <form
+                    className="proof-upload"
+                    onSubmit={async (e) => {
+                      e.preventDefault();
+                      if (!proofFile) return;
+                      setBusy(true);
+                      setError('');
+                      try {
+                        await repository.submitPaymentProof(order.code, order.token, proofFile);
+                        setOrder(await repository.track(order.code, order.token));
+                        setProofFile(null);
+                        toast('Bukti pembayaran berhasil dikirim.');
+                      } catch (e) {
+                        setError(errorText(e));
+                      } finally {
+                        setBusy(false);
+                      }
+                    }}
+                  >
+                    <Field label="Unggah bukti pembayaran">
+                      <Input
+                        type="file"
+                        accept="image/jpeg,image/png,image/webp"
+                        required
+                        onChange={(e) => setProofFile(e.target.files?.[0] || null)}
+                      />
+                    </Field>
+                    <small>JPG, PNG, atau WebP maksimal 3 MB.</small>
+                    <FormError message={error} />
+                    <Button className="shop-btn" type="submit" disabled={busy || !proofFile}>
+                      {busy ? 'Mengunggah...' : 'Kirim bukti pembayaran'}
+                    </Button>
+                  </form>
                 )}
               </div>
             )}

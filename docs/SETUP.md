@@ -28,10 +28,10 @@ npx supabase functions deploy checkout
 npx supabase functions deploy payment-webhook
 npx supabase functions deploy billing-checkout
 npx supabase functions deploy maintenance
-npx supabase functions deploy publish-store
+npx supabase functions deploy payment-proof
 ```
 
-`supabase/.env.local` berasal dari `supabase/.env.example` dan tidak masuk Git. Ketiga migrasi menyediakan tabel, RPC, RLS, bucket, audit, publikasi Realtime dan pemetaan deployment Netlify. Semua perubahan stok/uang memakai transaksi database; client hanya memiliki akses baca miliknya dan RPC terkontrol. Checkout publik dijalankan oleh Edge Function dengan service role dan pembatasan request.
+`supabase/.env.local` berasal dari `supabase/.env.example` dan tidak masuk Git. Migrasi menyediakan tabel, RPC, RLS, bucket, audit, dan publikasi Realtime. Semua perubahan stok dan status pembayaran memakai transaksi database; client hanya memiliki akses baca miliknya dan RPC terkontrol. Checkout publik dijalankan oleh Edge Function dengan service role dan pembatasan request.
 
 Untuk pengembangan Supabase lokal, pasang Docker dan jalankan `npx supabase start`. Pengujian PGlite tidak memerlukan Docker, tetapi tidak menggantikan pemeriksaan layanan Auth/Storage/Realtime di Supabase staging.
 
@@ -45,25 +45,11 @@ Nama akun dapat diperbarui di Pengaturan. Dokumen verifikasi masuk bucket privat
 
 ## 3. Pembayaran dan saldo
 
-### QRIS
+### Pembayaran toko manual
 
-Isi `MIDTRANS_SERVER_KEY`, `MIDTRANS_PRODUCTION=false` untuk sandbox, `APP_URL`, `ALLOWED_ORIGINS`, `BASE_DOMAIN` dan `RATE_LIMIT_SALT`. Aktifkan QRIS/GoPay pada akun Midtrans. Atur notification URL:
+Pemilik toko mengaktifkan transfer bank dan/atau mengunggah QRIS statis pada Pengaturan. Checkout menyimpan salinan petunjuk pembayaran pada pesanan. Pembeli membayar langsung ke pemilik toko, mengunggah bukti JPG/PNG/WebP maksimal 3 MB, lalu pemilik memeriksa mutasi rekening atau aplikasi QRIS dan memilih konfirmasi atau tolak bukti.
 
-```text
-https://PROJECT_REF.supabase.co/functions/v1/payment-webhook
-```
-
-Server membuat Snap redirect menggunakan total dari database. Webhook memeriksa SHA-512 signature, mengambil status langsung dari Midtrans, membandingkan jumlah, lalu mengkredit saldo sekali. Redirect pelanggan tidak mengubah status pembayaran. Status yang tidak diketahui tetap pending; stok tidak dilepas saat hasil gateway belum pasti. Batalkan QRIS melalui gateway; webhook akan memperbarui pesanan. Refund pembayaran yang sudah lunas memerlukan operasi gateway dan rekonsiliasi; tidak tersedia sebagai tombol merchant MVP.
-
-### Transfer manual (sesuai PRD MVP)
-
-Isi `TRANSFER_BANK`, `TRANSFER_NUMBER`, `TRANSFER_NAME` dengan **rekening penerimaan platform**, bukan rekening pencairan merchant. Petunjuk transfer disimpan pada pesanan dan hanya ditampilkan dengan token pelacakan privat. Operator memeriksa mutasi bank, jumlah dan nomor pesanan, kemudian memanggil RPC service-only:
-
-```sql
-select public.confirm_manual_payment('ORDER_UUID', 40000, 'BANK-MUTATION-REFERENCE');
-```
-
-Referensi bank wajib unik; jumlah harus tepat; retry tidak menambah saldo lagi. Merchant tidak memiliki izin menjalankan fungsi tersebut. Transfer setelah pesanan batal/kedaluwarsa harus diperiksa operator untuk pengembalian/rekonsiliasi dan tidak otomatis dikreditkan.
+Bukti disimpan di bucket privat `payment-proofs` dan hanya dibuka pemilik toko melalui URL bertanda tangan yang singkat masa berlakunya. Konfirmasi mengubah pesanan menjadi lunas tanpa menambah saldo platform. Pengembalian dana dilakukan langsung antara pemilik toko dan pembeli.
 
 ### Langganan
 
@@ -89,9 +75,7 @@ Untuk email isi `RESEND_API_KEY` dan `NOTIFICATION_FROM` dengan domain pengirim 
 
 ## 5. Hosting dan wildcard domain
 
-Hosting aktif memakai Netlify Free: https://kioskuapp.netlify.app. Setiap toko yang dipublikasikan mendapat project tersendiri dengan alamat `.netlify.app`. Ikuti [panduan Netlify](deployment/NETLIFY.md) untuk secret, pembaruan bundle dan rotasi token. Build command `npm run build`; output `dist/`. `vercel.json` dan `netlify.toml` menyediakan SPA fallback dan header dasar. Git auto-deploy belum dihubungkan.
-
-Opsi domain sendiri di masa depan: hubungkan `kiosku.id` dan `*.kiosku.id` ke hosting yang mendukung wildcard TLS. Frontend sudah memiliki resolver subdomain. Konfigurasi domain tersebut belum dilakukan dan tidak diperlukan untuk alur Netlify aktif. Untuk localhost dan preview gunakan `/toko/SLUG`. Domain `www` dan `app` dicadangkan. Custom domain pelanggan di luar scope MVP.
+Build command adalah `npm run build` dengan output `dist/`. Storefront setiap toko memakai route `/toko/SLUG` dalam aplikasi yang sama. Jika domain `kiosku.id` digunakan kelak, wildcard subdomain dapat diarahkan ke aplikasi yang sama; domain `www` dan `app` dicadangkan.
 
 Sebelum soft launch, uji OTP email/SMS, private storage, cross-account RLS, event Realtime, QRIS sandbox sukses/gagal/duplikat, transfer manual, invoice, scheduler, penarikan dan wildcard TLS di staging. Uji beban dan soft launch UMKM belum dijalankan.
 

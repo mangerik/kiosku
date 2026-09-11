@@ -14,7 +14,7 @@ Buka **http://127.0.0.1:5173**. Workspace ini sekarang memakai Supabase melalui 
 ```sh
 npm test           # aturan bisnis dan idempotensi
 npm run test:db    # migrasi + RLS + transaksi dalam PostgreSQL PGlite
-npm run check:edge # typecheck lima Supabase Edge Functions
+npm run check:edge # typecheck Supabase Edge Functions
 npm run test:edge  # signature, status pembayaran, ukuran request, CORS
 npm run build     # build produksi ke dist/
 ```
@@ -32,9 +32,9 @@ npm run build     # build produksi ke dist/
 
 ## Status dan aktivasi
 
-**Web sudah online:** https://kioskuapp.netlify.app. Tombol Publish membuat project Netlify per toko dengan alamat `.netlify.app` dan memakai kembali alamat tersebut untuk pembaruan. Lihat [panduan Netlify](docs/deployment/NETLIFY.md).
+Tombol Publish menerbitkan draft toko ke storefront internal `/toko/{slug}`. Proyek tidak membuat deployment hosting terpisah untuk setiap toko.
 
-**Supabase sudah terhubung** ke proyek `mbackiawysjbjvqlntfs`: 14 tabel dengan RLS, tiga bucket, delapan tabel Realtime dan lima Edge Functions sudah dipasang. Build memakai konfigurasi cloud asli. Atas permintaan pemilik, verifikasi email/OTP sementara dinonaktifkan: daftar dengan nama, email dan password langsung masuk dashboard; login memakai email/password. Provider pembayaran, scheduler, SMTP/SMS dan domain sendiri belum aktif. Detail dan bukti ada di [catatan koneksi Supabase](docs/deployment/SUPABASE.md).
+**Supabase sudah terhubung** ke proyek `mbackiawysjbjvqlntfs`. Atas permintaan pemilik, verifikasi email/OTP sementara dinonaktifkan: daftar dengan nama, email dan password langsung masuk dashboard; login memakai email/password. Pembayaran toko memakai transfer/QRIS langsung milik pemilik toko, unggah bukti, dan konfirmasi manual. Detail ada di [catatan koneksi Supabase](docs/deployment/SUPABASE.md).
 
 - [Panduan Supabase, pembayaran dan deployment](docs/SETUP.md)
 - [Hasil pemeriksaan dan batas implementasi](docs/IMPLEMENTATION.md)

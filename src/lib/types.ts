@@ -15,6 +15,14 @@ export type Layout = {
   logo: string;
   theme: string;
 };
+export type StorePaymentSettings = {
+  bankEnabled: boolean;
+  bank: string;
+  bankNumber: string;
+  bankName: string;
+  qrisEnabled: boolean;
+  qrisImage: string;
+};
 export type Account = {
   id: string;
   name: string;
@@ -35,16 +43,12 @@ export type Store = {
   contact: string;
   policy: string;
   shippingFee: number;
+  paymentSettings: StorePaymentSettings;
   status: 'draft' | 'live' | 'nonaktif';
   draft: Layout;
   published: Layout | null;
   versions: { at: string; layout: Layout }[];
   createdAt: string;
-  publicUrl?: string | null;
-  deployment?: {
-    state: 'preparing' | 'deploying' | 'ready' | 'failed';
-    error: string | null;
-  } | null;
 };
 export type Variant = { id: string; name: string; stock: number; price: number };
 export type Product = {
@@ -93,7 +97,15 @@ export type Order = {
   createdAt: string;
   events: { at: string; text: string }[];
   paymentUrl?: string;
-  paymentInstructions?: { bank: string; number: string; name: string };
+  paymentInstructions?: {
+    bank?: string;
+    number?: string;
+    name?: string;
+    qrisImage?: string;
+  };
+  paymentProofSubmitted?: boolean;
+  paymentProofSubmittedAt?: string | null;
+  paymentProofRejectedReason?: string | null;
 };
 export type Transaction = {
   id: string;
@@ -116,6 +128,7 @@ export type CartItem = { productId: string; variantId: string; quantity: number 
 export type Command =
   | { type: 'create-store'; name: string; slug: string; category: string; theme: string }
   | { type: 'save-store'; store: Store }
+  | { type: 'save-payment-settings'; storeId: string; settings: StorePaymentSettings }
   | { type: 'save-product'; product: Product }
   | { type: 'delete-product'; id: string }
   | { type: 'import-products'; products: Product[] }
@@ -123,6 +136,7 @@ export type Command =
   | { type: 'publish'; storeId: string }
   | { type: 'update-order'; id: string; status: OrderStatus; tracking: string; courier: string }
   | { type: 'pay-order'; id: string; outcome: 'lunas' | 'gagal' }
+  | { type: 'review-payment'; id: string; decision: 'accept' | 'reject'; reason?: string }
   | { type: 'withdraw'; amount: number; requestId?: string }
   | { type: 'change-tier'; tier: Tier }
   | { type: 'verify'; bank: string; bankNumber: string; bankName: string; documentPath: string }

@@ -35,6 +35,9 @@ sign_in_sign_ups = 30
 [functions.checkout]
 verify_jwt = false
 
+[functions.payment-proof]
+verify_jwt = false
+
 [functions.payment-webhook]
 verify_jwt = false
 
@@ -42,7 +45,4 @@ verify_jwt = false
 verify_jwt = false
 
 [functions.maintenance]
-verify_jwt = false
-
-[functions.publish-store]
 verify_jwt = false

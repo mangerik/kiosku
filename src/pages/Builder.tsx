@@ -209,39 +209,12 @@ function Editor({ store }: { store: Store }) {
           </>
         }
       />
-      {(store.publicUrl || store.deployment) && (
+      {store.status === 'live' && (
         <div className="info-banner">
-          <span>
-            {store.deployment?.state === 'ready'
-              ? 'Toko sudah online.'
-              : store.deployment?.error || 'Alamat toko sedang disiapkan.'}
-          </span>
-          {store.publicUrl && (
-            <a href={storefrontUrl(store)} target="_blank" rel="noopener noreferrer">
-              Buka toko
-            </a>
-          )}
-          {store.deployment?.state !== 'ready' && (
-            <Button
-              variant="secondary"
-              disabled={busy}
-              onClick={async () => {
-                setBusy(true);
-                try {
-                  const result = await repository.publishStatus(store.id);
-                  if (result.state === 'ready') toast('Toko sudah online.');
-                  else toast('Netlify masih menyiapkan toko. Cek lagi sebentar.');
-                } catch (e) {
-                  toast(errorText(e), true);
-                } finally {
-                  await refresh();
-                  setBusy(false);
-                }
-              }}
-            >
-              Cek status publish
-            </Button>
-          )}
+          <span>Toko sudah dipublikasikan di Kiosku.</span>
+          <a href={storefrontUrl(store)} target="_blank" rel="noopener noreferrer">
+            Buka toko
+          </a>
         </div>
       )}
       {!products.length && (
@@ -351,9 +324,7 @@ function Editor({ store }: { store: Store }) {
           <div className="builder-stage-toolbar">
             <span>
               <span className="browser-dots">● ● ●</span>
-              {store.publicUrl
-                ? new URL(storefrontUrl(store), window.location.origin).host
-                : `Preview / ${store.slug}`}
+              {store.status === 'live' ? storefrontUrl(store) : `Preview / ${store.slug}`}
             </span>
             <div className="segmented">
               <button
