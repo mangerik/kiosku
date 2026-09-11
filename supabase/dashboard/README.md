@@ -8,3 +8,5 @@ Gunakan file berdasarkan nomor urut:
 4. `04-payment-webhook.ts` — ganti isi Edge Function `payment-webhook`, lalu Deploy.
 
 Matikan **Verify JWT with legacy secret** pada ketiga Edge Function tersebut. File dalam folder ini sudah dibundel agar dapat langsung ditempel ke editor dashboard. Source utama tetap berada di `supabase/functions/` dan `supabase/migrations/`.
+
+Setelah SQL berhasil, buka menu **Storage** dan hapus bucket lama `deployment-assets` melalui dashboard. Supabase melarang penghapusan bucket dengan SQL langsung.

@@ -30,8 +30,8 @@ do $$ begin
  end if;
 end $$;
 drop table if exists public.store_deployments;
-delete from storage.objects where bucket_id='deployment-assets';
-delete from storage.buckets where id='deployment-assets';
+-- Supabase protects storage tables from direct deletion. Remove the retired
+-- deployment-assets bucket through the Storage dashboard/API after this migration.
 
 create or replace function public.order_json(o public.orders) returns jsonb
  language sql stable security definer set search_path=public as $$
